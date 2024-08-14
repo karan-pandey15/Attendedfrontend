@@ -5,10 +5,10 @@ import { BsShop } from "react-icons/bs";
 import { AiOutlineWindows } from "react-icons/ai";
 import { FaWhatsapp } from "react-icons/fa";
 import "./footerstyle.css";
-import { FaBasketShopping } from "react-icons/fa6";
-import { IoReorderThree } from "react-icons/io5";
-import { FaWallet } from "react-icons/fa";
-
+import { FaBasketShopping } from "react-icons/fa6"; 
+import { GrUserWorker } from "react-icons/gr";
+import { FaWhatsapp } from "react-icons/fa";
+import { FaWpforms } from "react-icons/fa";
 const Footer = () => {
   return (
     <div style={{ backgroundColor: "#fff" }}>
@@ -200,35 +200,35 @@ const Footer = () => {
             </div>
           </Link>
 
-          <Link href="/pages/about">
+          <Link href="/pages/RegisterForm">
             <div className="small_container">
-              <AiOutlineWindows />
-              <p className="small_footer_para">CATEGORY</p>
+              <FaWpforms />
+              <p className="small_footer_para">Register</p>
             </div>
           </Link>
 
-          <Link href="/pages/categorypage">
+          <Link href="/">
             <div className="small_container">
               <FaBasketShopping />
               <p className="small_footer_para">BASKET</p>
             </div>
           </Link>
 
-          <Link href="/pages/allprd">
+          <Link href="/pages/cartdata">
             <div className="small_container">
-              <FaWallet />
-              <p className="small_footer_para">WALLET</p>
+              <GrUserWorker />
+              <p className="small_footer_para">Attended</p>
             </div>
           </Link>
 
           <Link
-            href="https://wa.me/9569125048"
+            href="https://wa.me/9999781282"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="small_container">
-              <IoReorderThree />
-              <p className="small_footer_para">MORE</p>
+            <div className="small_container"> 
+              <FaWhatsapp />
+              <p className="small_footer_para">Chat</p>
             </div>
           </Link>
         </div>

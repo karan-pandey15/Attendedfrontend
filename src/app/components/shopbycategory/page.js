@@ -26,7 +26,7 @@ const ShopByCategory = () => {
         {/* <h1 className="four_heading_div">Explore by Category</h1> */}
         <div className="four_div_container">
           <div className="round_container">
-            <Link href="/pages/beddisplay">
+            <Link href="/">
               <Image
                 src={FruitsVegetables}
                 className="round_contaner_img"
@@ -37,7 +37,7 @@ const ShopByCategory = () => {
           </div>
 
           <div className="round_container">
-            <Link href="/pages/sofadisplay">
+            <Link href="/">
               <Image
                 src={EggsMeatFish}
                 className="round_contaner_img"
@@ -48,7 +48,7 @@ const ShopByCategory = () => {
           </div>
 
           <div className="round_container">
-            <Link href="/pages/tabledisplay">
+            <Link href="/">
               <Image
                 src={RiceAttaDal}
                 className="round_contaner_img"
@@ -60,7 +60,7 @@ const ShopByCategory = () => {
 
     
           <div className="round_container">
-            <Link href="/pages/kafsardisplay">
+            <Link href="/">
               <Image
                 src={SnacksBiscuits}
                 className="round_contaner_img"
@@ -72,7 +72,7 @@ const ShopByCategory = () => {
 
 
           <div className="round_container">
-            <Link href="/pages/chairdisplay">
+            <Link href="/">
               <Image
                 src={cabs}
                 className="round_contaner_img"
@@ -84,7 +84,7 @@ const ShopByCategory = () => {
 
 
           <div className="round_container">
-            <Link href="/pages/wardrobedisplay">
+            <Link href="/">
               <Image
                 src={hotelimg}
                 className="round_contaner_img"
@@ -95,7 +95,7 @@ const ShopByCategory = () => {
           </div>
 
           <div className="round_container">
-            <Link href="/pages/kitchendisplay">
+            <Link href="/">
               <Image
                 src={helper}
                 className="round_contaner_img"
@@ -106,7 +106,7 @@ const ShopByCategory = () => {
           </div>
 
           <div className="round_container">
-            <Link href="/pages/windowdisplay">
+            <Link href="/">
               <Image
                 src={trip}
                 className="round_contaner_img"
@@ -117,7 +117,7 @@ const ShopByCategory = () => {
           </div>
 
           <div className="round_container">
-            <Link href="/pages/pillingdisplay">
+            <Link href="/">
               <Image
                 src={BreakfastFood}
                 className="round_contaner_img"
@@ -128,21 +128,21 @@ const ShopByCategory = () => {
           </div>
 
           <div className="round_container">
-            <Link href="/pages/doordisplay">
+            <Link href="/">
               <Image src={TeaCoffee} className="round_contaner_img" alt="img" />
               <p className="txt_container">Tea Coffee</p>
             </Link>
           </div>
 
           <div className="round_container">
-            <Link href="/pages/mandirdisplay">
+            <Link href="/">
               <Image src={BathBody} className="round_contaner_img" alt="img" />
               <p className="txt_container">Bath Body</p>
             </Link>
           </div>
 
           <div className="round_container">
-            <Link href="/pages/kitchendisplay">
+            <Link href="/">
               <Image
                 src={DairyBread}
                 className="round_contaner_img"
@@ -150,9 +150,7 @@ const ShopByCategory = () => {
               />
               <p className="txt_container">Dairy Bread</p>
             </Link>
-          </div>
-
-       
+          </div> 
         </div>
       </section>
     </>
