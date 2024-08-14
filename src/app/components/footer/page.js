@@ -1,4 +1,3 @@
- 
 import Link from "next/link";
 import { IoHomeOutline } from "react-icons/io5";
 import { BiCategory } from "react-icons/bi";
@@ -19,7 +18,8 @@ const Footer = () => {
             <div className="">
               <h1 className="footer_main_heading">MARAS</h1>
               <p className="footer_main_para">
-              Welcome to Maras, your ultimate destination for convenient and reliable online shopping. At Maras, we pride ourselves on offering a diverse range of high-quality products that cater to all your needs. Whether you're looking for the latest in fashion, electronics, home essentials, or unique gifts, we've got you covered.  </p>
+                Welcome to Maras, your ultimate destination for convenient and reliable online shopping. At Maras, we pride ourselves on offering a diverse range of high-quality products that cater to all your needs. Whether you&apos;re looking for the latest in fashion, electronics, home essentials, or unique gifts, we&apos;ve got you covered.
+              </p>
             </div>
           </div>
           <div className="link_container">
@@ -48,38 +48,26 @@ const Footer = () => {
                   Term&Condition
                 </Link>
               </li>
-
-                
               <li className=" ">
                 <Link href="/pages/productform" className="">
-                   adminsignin
+                  adminsignin
                 </Link>
               </li>
-
-
-                
               <li className=" ">
                 <Link href="/pages/partnerLogin" className="">
-                   Partner Login
+                  Partner Login
                 </Link>
               </li>
-
-
               <li className=" ">
                 <Link href="/pages/RegisterForm" className="">
-                Attended Register
+                  Attended Register
                 </Link>
               </li>
-
               <li className=" ">
                 <Link href="/pages/cartdata" className="">
-                Attended 
+                  Attended 
                 </Link>
               </li>
-              
-              
-               
-              
             </ul>
           </div>
 
@@ -87,7 +75,6 @@ const Footer = () => {
             <h5
               style={{
                 color: "#111",
-
                 fontSize: "24px",
                 fontWeight: "600",
               }}
@@ -95,7 +82,7 @@ const Footer = () => {
               Shop
             </h5>
             <ul className="ul_link">
-            <li className="">
+              <li className="">
                 <Link href="/pages/fruitsvegetables" className="">
                   Fruits & Vegetables
                 </Link>
@@ -115,7 +102,6 @@ const Footer = () => {
                   Beverages
                 </Link>
               </li>
-             
             </ul>
           </div>
 
@@ -127,7 +113,6 @@ const Footer = () => {
                 fontWeight: "600",
               }}
             >
-               
             </h5>
             <ul className="ul_link">
               <li className="">
@@ -192,21 +177,17 @@ const Footer = () => {
             </ul>
 
             <ul className="ul_link">
-             
-             <li className=" ">
-               <Link href="/pages/cancellationandrefund" className="">
-               Cancellation & Refund
-               </Link>
-             </li>
-
-             <li className=" ">
-               <Link href="/pages/shippinganddelivery" className="">
-               Shipping & Delivery  
-               </Link>
-             </li>
-            
-             
-           </ul>
+              <li className=" ">
+                <Link href="/pages/cancellationandrefund" className="">
+                  Cancellation & Refund
+                </Link>
+              </li>
+              <li className=" ">
+                <Link href="/pages/shippinganddelivery" className="">
+                  Shipping & Delivery  
+                </Link>
+              </li>
+            </ul>
           </div>
         </footer>
       </div>
@@ -257,5 +238,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
- 
