@@ -1,13 +1,9 @@
 import Link from "next/link";
-import { IoHomeOutline } from "react-icons/io5";
-import { BiCategory } from "react-icons/bi";
-import { BsShop } from "react-icons/bs";
-import { AiOutlineWindows } from "react-icons/ai";
+import { IoHomeOutline } from "react-icons/io5"; 
 import { FaWhatsapp } from "react-icons/fa";
 import "./footerstyle.css";
 import { FaBasketShopping } from "react-icons/fa6"; 
-import { GrUserWorker } from "react-icons/gr";
-import { FaWhatsapp } from "react-icons/fa";
+import { GrUserWorker } from "react-icons/gr"; 
 import { FaWpforms } from "react-icons/fa";
 const Footer = () => {
   return (
