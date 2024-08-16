@@ -9,7 +9,7 @@ import fruitvegeimg from "../../../../public/category/fruitvege.png";
 import teacoffe from "../../../../public/category/teacoffe.png";  
 import hotelimg from "../../../../public/category/bevrages.png"; 
 import breakfast from "../../../../public/category/breakfast.png"; 
-const ShopByCategory = () => {
+const ShopByCategoryFour = () => {
   return (
     <>
       <section style={{ backgroundColor: "#fff",marginTop:'20px' }}>
@@ -22,7 +22,7 @@ const ShopByCategory = () => {
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">MILK&Bread</p>
+              <p className="txt_container">Daily Products</p>
             </Link>
           </div>
 
@@ -33,7 +33,7 @@ const ShopByCategory = () => {
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Grocery</p>
+              <p className="txt_container">boyycare</p>
             </Link>
           </div>
 
@@ -44,7 +44,7 @@ const ShopByCategory = () => {
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Breakfast</p>
+              <p className="txt_container">Cosmetic</p>
             </Link>
           </div>
 
@@ -56,7 +56,7 @@ const ShopByCategory = () => {
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Tea&Coffe</p>
+              <p className="txt_container">Health Care</p>
             </Link>
           </div>
 
@@ -68,7 +68,7 @@ const ShopByCategory = () => {
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Fruit&Vege</p>
+              <p className="txt_container">Fashion</p>
             </Link>
           </div>
 
@@ -80,50 +80,13 @@ const ShopByCategory = () => {
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">beverage</p>
+              <p className="txt_container">Gifts</p>
             </Link>
           </div>
-
-                <div className="round_container">
-            <Link href="/">
-              <Image
-                src={teacoffe}
-                className="round_contaner_img"
-                alt="img"
-              />
-              <p className="txt_container">Tea&Coffe</p>
-            </Link>
-          </div>
-
-
-          <div className="round_container">
-            <Link href="/">
-              <Image
-                src={fruitvegeimg}
-                className="round_contaner_img"
-                alt="img"
-              />
-              <p className="txt_container">Fruit&Vege</p>
-            </Link>
-          </div>
-
-
-          <div className="round_container">
-            <Link href="/">
-              <Image
-                src={hotelimg}
-                className="round_contaner_img"
-                alt="img"
-              />
-              <p className="txt_container">beverage</p>
-            </Link>
-          </div>
-          -
-       
         </div>
       </section>
     </>
   );
 };
 
-export default ShopByCategory;
+export default ShopByCategoryFour;
