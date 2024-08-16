@@ -9,11 +9,7 @@ import "./banner2.css"
 import { Autoplay, Pagination } from "swiper/modules";
 import Image from "next/image";
 import banner1 from "../../../../public/banner1.png"; 
-import banner2 from "../../../../public/banner2.png"; 
-import banner5 from "../../../../public/Header_PC_1500x300._SX1500_QL85_.jpg";
-import banner6 from "../../../../public/mango_1500x300_v1._SX1500_QL85_.jpg";
-import banner7 from "../../../../public/Meat_PC_1_2._SX1500_QL85_.jpg";
-import banner8 from "../../../../public/SF_PC_3._SX1500_QL85_.jpg";
+import banner2 from "../../../../public/banner2.png";  
 
 const Banner2 = () => {
   return (

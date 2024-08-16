@@ -1,6 +1,5 @@
-import Banner1 from "./components/banner1/page";
-import Banner2 from "./components/banner2/page"; 
-import Banner4 from "./components/banner4/page"; 
+ 
+import Banner2 from "./components/banner2/page";  
 import Footer from "./components/footer/page"; 
 import Navbar from "./components/navbar/page"; 
 import ShopByCategory from "./components/shopbycategory/page"  
