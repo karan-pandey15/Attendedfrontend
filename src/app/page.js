@@ -20,10 +20,10 @@ export default function Home() {
       <div>
       <Banner2 />
       </div>
-      {/* <div>
-        <ShopByCategory />
+      
+      <div style={{height:'250px'}} >
+
       </div>
-       */}
      
       <div>
         <Footer />

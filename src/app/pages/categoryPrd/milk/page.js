@@ -77,11 +77,6 @@ export default function MilkPage() {
       <div className="max-w-md mx-auto mt-10 bg-white shadow-lg rounded-lg">
         <header className="flex justify-between items-center p-4 border-b border-gray-200">
           <h2 className="text-xl font-bold">Milk</h2>
-          <div className="flex items-center">
-            <button className="text-blue-600">Fresh Milk</button>
-            <button className="ml-4 text-gray-400">Milk Tetra Pack</button>
-            <button className="ml-4 text-gray-400">Vegan Milk</button>
-          </div>
         </header>
         <div>
           {milkProducts.map((product) => (
