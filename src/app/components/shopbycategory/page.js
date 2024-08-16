@@ -3,58 +3,48 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "./Categofystyle.css";
-import FruitsVegetables from "../../../../public/marasImg/milk2.jpeg";
-import EggsMeatFish from "../../../../public/marasImg/bread.jpeg";
-import RiceAttaDal from "../../../../public/Rice-Atta--Dal.jpg";
-import OilMasalaSauces from "../../../../public/Oil_Masala__Sauces._QL30_.jpg";
-import SnacksBiscuits from "../../../../public/Snacks__Biscuits_2.jpg";
-import InstantFood from "../../../../public/Instant-Food_new.jpg";
-
-import DairyBread from "../../../../public/Dairy__Bread._QL30_.jpg";
-import ChocolatesIcecream from "../../../../public/SF_SBC_Tiles_MOB_400x420_new-copy_1.jpg";
-import BreakfastFood from "../../../../public/Breakfast_Food_._QL30_.jpg";
-import TeaCoffee from "../../../../public/Tea__coffee._QL30_.jpg";
-import BathBody from "../../../../public/Bath__Body._QL30_.jpg";
-import cabs from "../../../../public/marasImg/cabs.jpg";
-import helper from "../../../../public/marasImg/helper.jpg";
-import hotelimg from "../../../../public/marasImg/hotelimg.png";
-import trip from "../../../../public/marasImg/planetrip.jpeg";
+import MilkBreadimg from "../../../../public/marasImg/milk2.jpeg";
+import groceryimg from "../../../../public/category/grocery.png";
+import fruitvegeimg from "../../../../public/category/fruitvege.png"; 
+import teacoffe from "../../../../public/category/teacoffe.png";  
+import hotelimg from "../../../../public/category/bevrages.png"; 
+import breakfast from "../../../../public/category/breakfast.png"; 
 const ShopByCategory = () => {
   return (
     <>
-      <section style={{ backgroundColor: "#fff" }}>
+      <section style={{ backgroundColor: "#fff",marginTop:'20px' }}>
         {/* <h1 className="four_heading_div">Explore by Category</h1> */}
         <div className="four_div_container">
           <div className="round_container">
-            <Link href="/">
+            <Link href="/pages/categoryPrd/milk">
               <Image
-                src={FruitsVegetables}
+                src={MilkBreadimg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">MILK</p>
+              <p className="txt_container">MILK&Bread</p>
             </Link>
           </div>
 
           <div className="round_container">
             <Link href="/">
               <Image
-                src={EggsMeatFish}
+                src={groceryimg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">BREAD</p>
+              <p className="txt_container">Grocery</p>
             </Link>
           </div>
 
           <div className="round_container">
             <Link href="/">
               <Image
-                src={RiceAttaDal}
+                src={breakfast}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Rice Daal</p>
+              <p className="txt_container">Breakfast</p>
             </Link>
           </div>
 
@@ -62,11 +52,11 @@ const ShopByCategory = () => {
           <div className="round_container">
             <Link href="/">
               <Image
-                src={SnacksBiscuits}
+                src={teacoffe}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Snacks Biscuits</p>
+              <p className="txt_container">Tea&Coffe</p>
             </Link>
           </div>
 
@@ -74,11 +64,11 @@ const ShopByCategory = () => {
           <div className="round_container">
             <Link href="/">
               <Image
-                src={cabs}
+                src={fruitvegeimg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Cab</p>
+              <p className="txt_container">Fruit&Vege</p>
             </Link>
           </div>
 
@@ -90,67 +80,11 @@ const ShopByCategory = () => {
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Book Hotel</p>
+              <p className="txt_container">beverage</p>
             </Link>
           </div>
 
-          <div className="round_container">
-            <Link href="/">
-              <Image
-                src={helper}
-                className="round_contaner_img"
-                alt="img"
-              />
-              <p className="txt_container">Attendant</p>
-            </Link>
-          </div>
-
-          <div className="round_container">
-            <Link href="/">
-              <Image
-                src={trip}
-                className="round_contaner_img"
-                alt="img"
-              />
-              <p className="txt_container">Plan a Trip</p>
-            </Link>
-          </div>
-
-          <div className="round_container">
-            <Link href="/">
-              <Image
-                src={BreakfastFood}
-                className="round_contaner_img"
-                alt="img"
-              />
-              <p className="txt_container"> Breakfast Food</p>
-            </Link>
-          </div>
-
-          <div className="round_container">
-            <Link href="/">
-              <Image src={TeaCoffee} className="round_contaner_img" alt="img" />
-              <p className="txt_container">Tea Coffee</p>
-            </Link>
-          </div>
-
-          <div className="round_container">
-            <Link href="/">
-              <Image src={BathBody} className="round_contaner_img" alt="img" />
-              <p className="txt_container">Bath Body</p>
-            </Link>
-          </div>
-
-          <div className="round_container">
-            <Link href="/">
-              <Image
-                src={DairyBread}
-                className="round_contaner_img"
-                alt="img"
-              />
-              <p className="txt_container">Dairy Bread</p>
-            </Link>
-          </div> 
+       
         </div>
       </section>
     </>

@@ -21,9 +21,10 @@ export default function Home() {
       <div>
       <Banner2 />
       </div>
-      <div>
+      {/* <div>
         <ShopByCategory />
       </div>
+       */}
      
       <div>
         <Footer />
