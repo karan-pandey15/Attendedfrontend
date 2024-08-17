@@ -4,16 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import "./Categofystyle.css";
 
-
-import dailyPrdImg from "../../../../public/category/dailyPrd.jpeg"; 
+import ChoklatesImg from "../../../../public/category/choklates.jpeg"; 
 import bodycare from "../../../../public/category/bodycare.jpeg"; 
 import cosmeticImg from "../../../../public/category/cosmeticimg.jpeg"; 
 import fashionImg from "../../../../public/category/fashion.jpeg"; 
-import healtchCareImg from "../../../../public/category/healtchCareImg.jpeg"; 
-import giftsImg from "../../../../public/category/gifts.jpeg"; 
-
-
-
+import tripImg from "../../../../public/marasImg/planetrip.jpeg";  
 
 const ShopByCategoryFour = () => {
   return (
@@ -26,22 +21,22 @@ const ShopByCategoryFour = () => {
           <div className="round_container">
             <Link href="/">
               <Image
-                src={bodycare}
+                src={ChoklatesImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">boyycare</p>
+              <p className="txt_container">Chocolates & Candies</p>
             </Link>
           </div>
 
           <div className="round_container">
             <Link href="/">
               <Image
-                src={cosmeticImg}
+                src={bodycare}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Cosmetic</p>
+              <p className="txt_container">Bath & Body</p>
             </Link>
           </div>
 
@@ -62,33 +57,33 @@ const ShopByCategoryFour = () => {
           <div className="round_container">
             <Link href="/">
               <Image
-                src={healtchCareImg}
+                src={cosmeticImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Health Care</p>
+              <p className="txt_container">Cosmetics</p>
             </Link>
           </div>
 
           <div className="round_container">
             <Link href="/">
               <Image
-                src={giftsImg}
+                src={tripImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Gifts</p>
+              <p className="txt_container">Plan A Trip</p>
             </Link>
           </div>
 
           <div className="round_container">
-            <Link href="/pages/categoryPrd/milk">
+            <Link href="/">
               <Image
-                src={dailyPrdImg}
+                src={tripImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Daily Products</p>
+              <p className="txt_container">Flight Booking</p>
             </Link>
           </div>
         </div>

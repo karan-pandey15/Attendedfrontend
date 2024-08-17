@@ -3,17 +3,18 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "./Categofystyle.css";
-import MilkBreadimg from "../../../../public/marasImg/milk2.jpeg";
-import groceryimg from "../../../../public/category/grocery.png";
-import fruitvegeimg from "../../../../public/category/fruitvege.png"; 
-import teacoffe from "../../../../public/category/teacoffe.png";  
-import hotelimg from "../../../../public/category/bevrages.png"; 
-import breakfast from "../../../../public/category/breakfast.png"; 
+import MilkBreadimg from "../../../../public/marasImg/milk2.jpeg"; 
+import ChoklatesImg from "../../../../public/category/choklates.jpeg";  
+import giftsImg from "../../../../public/category/gifts.jpeg"; 
+import helperImg from "../../../../public/marasImg/helper.jpg";
+import cabImg from "../../../../public/marasImg/cabimg.png";
+import hotelImg from "../../../../public/marasImg/hotelimg.png";  
+import tripImg from "../../../../public/marasImg/planetrip.jpeg";  
+import computerImg from "../../../../public/category/computerImg.jpeg";
+import schoolImg from "../../../../public/category/schoolimage.jpeg";  
+import groceryImg from "../../../../public/category/grocery.png"
 
 
-import eggsImg from "../../../../public/category/eggs.jpeg";  
-import BiscuitsImg from "../../../../public/category/biscuit.png"; 
-import ChoklatesImg from "../../../../public/category/choklates.jpeg"; 
 
 const ShopByCategory = () => {
   return (
@@ -22,35 +23,35 @@ const ShopByCategory = () => {
         {/* <h1 className="four_heading_div">Explore by Category</h1> */}
         <div className="four_div_container">
           <div className="round_container">
-            <Link href="/pages/categoryPrd/milk">
+            <Link href="/">
               <Image
-                src={MilkBreadimg}
+                src={cabImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">MILK&Bread</p>
+              <p className="txt_container">Cab Booking</p>
             </Link>
           </div>
 
           <div className="round_container">
             <Link href="/">
               <Image
-                src={groceryimg}
+                src={helperImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Grocery</p>
+              <p className="txt_container">Attendante</p>
             </Link>
           </div>
 
           <div className="round_container">
             <Link href="/">
               <Image
-                src={breakfast}
+                src={hotelImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Breakfast</p>
+              <p className="txt_container">Hotel Booking</p>
             </Link>
           </div>
 
@@ -58,11 +59,11 @@ const ShopByCategory = () => {
           <div className="round_container">
             <Link href="/">
               <Image
-                src={teacoffe}
+                src={tripImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Tea&Coffe</p>
+              <p className="txt_container">Plan a Trip</p>
             </Link>
           </div>
 
@@ -70,11 +71,11 @@ const ShopByCategory = () => {
           <div className="round_container">
             <Link href="/">
               <Image
-                src={fruitvegeimg}
+                src={computerImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Fruit&Vege</p>
+              <p className="txt_container">Rental Computer</p>
             </Link>
           </div>
 
@@ -82,22 +83,34 @@ const ShopByCategory = () => {
           <div className="round_container">
             <Link href="/">
               <Image
-                src={hotelimg}
+                src={schoolImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">beverage</p>
+              <p className="txt_container">School</p>
             </Link>
           </div>
 
                 <div className="round_container">
             <Link href="/">
               <Image
-                src={eggsImg}
+                src={giftsImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Eggs</p>
+              <p className="txt_container">Gifts</p>
+            </Link>
+          </div>
+
+
+          <div className="round_container">
+            <Link href="/pages/categoryPrd/milk">
+              <Image
+                src={MilkBreadimg}
+                className="round_contaner_img"
+                alt="img"
+              />
+              <p className="txt_container">Milk & Bread</p>
             </Link>
           </div>
 
@@ -105,23 +118,11 @@ const ShopByCategory = () => {
           <div className="round_container">
             <Link href="/">
               <Image
-                src={BiscuitsImg}
+                src={groceryImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Snack & Biscuits</p>
-            </Link>
-          </div>
-
-
-          <div className="round_container">
-            <Link href="/">
-              <Image
-                src={ChoklatesImg}
-                className="round_contaner_img"
-                alt="img"
-              />
-              <p className="txt_container">Choklates</p>
+              <p className="txt_container">Grocery</p>
             </Link>
           </div>
           -

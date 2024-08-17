@@ -204,6 +204,16 @@ const RegisterEmp = () => {
                 required
               />
               <input
+                type="text"
+                name="fatherName"
+                value={formData.fatherName}
+                onChange={handleChange}
+                placeholder="father Name"
+                className="p-3 border border-gray-300 rounded"
+                required
+              />
+              
+              <input
                 type="email"
                 name="email"
                 value={formData.email}
@@ -441,7 +451,7 @@ const RegisterEmp = () => {
               name="bankName"
               value={formData.bankName}
               onChange={handleChange}
-              placeholder="Bank Name"
+              placeholder="Your Name in Bank"
               className="p-3 border border-gray-300 rounded"
               required
             />
@@ -460,11 +470,25 @@ const RegisterEmp = () => {
                 name="branch"
                 value={formData.branch}
                 onChange={handleChange}
+                placeholder="Branch Name"
+                className="p-3 border border-gray-300 rounded"
+                required
+              />
+
+<input
+                type="text"
+                name="branch"
+                value={formData.branch}
+                onChange={handleChange}
                 placeholder="Branch"
                 className="p-3 border border-gray-300 rounded"
                 required
               />
+              
+
             </div>
+
+
             <input
               type="text"
               name="ifscCode"
@@ -556,15 +580,7 @@ const RegisterEmp = () => {
                 className="p-3 border border-gray-300 rounded"
                 required
               />
-              <input
-                type="text"
-                name="panNumber"
-                value={formData.panNumber}
-                onChange={handleChange}
-                placeholder="Reference Number"
-                className="p-3 border border-gray-300 rounded"
-                required
-              />
+              
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
@@ -575,16 +591,7 @@ const RegisterEmp = () => {
                 placeholder="Reference Address"
                 className="p-3 border border-gray-300 rounded"
                 required
-              />
-                   <input
-                type="text"
-                name="aadharNumber"
-                value={formData.aadharNumber}
-                onChange={handleChange}
-                placeholder="PIN Code"
-                className="p-3 border border-gray-300 rounded"
-                required
-              />
+              /> 
               <select
                 name="gender"
                 value={formData.gender}
@@ -609,7 +616,7 @@ const RegisterEmp = () => {
           <div className="space-y-4">
             <h2 className="text-xl font-semibold mb-4">Upload Documents</h2>
             <div>
-              <label className="block font-semibold">Upload Marksheet:</label>
+              <label className="block font-semibold">Upload Higher Education Proof:</label>
               <input
                 type="file"
                 name="marksheet"
@@ -619,7 +626,7 @@ const RegisterEmp = () => {
               />
             </div>
             <div>
-              <label className="block font-semibold">Upload Image:</label>
+              <label className="block font-semibold">Upload Image -Pan,addhar(Both Side),selfie:</label>
               <input
                 type="file"
                 name="image"
@@ -629,7 +636,7 @@ const RegisterEmp = () => {
               />
             </div>
             <div>
-              <label className="block font-semibold">Upload Cancelled Check or Passbook:</label>
+              <label className="block font-semibold">Upload Check:</label>
               <input
                 type="file"
                 name="checkBook"
