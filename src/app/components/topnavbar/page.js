@@ -189,26 +189,6 @@ const TopNavbar = () => {
       url: "/",
     },
     {
-      id: 6,
-      itemName: "Snacks & Biscuits",
-      url: "/",
-    },
-    {
-      id: 7,
-      itemName: "Eggs, Meat & Fish",
-      url: "/",
-    },
-    {
-      id: 8,
-      itemName: "Health & Nutrition",
-      url: "/",
-    },
-    {
-      id: 9,
-      itemName: "Bread",
-      url: "",
-    },
-    {
       id: 10,
       itemName: "Book Attended",
       url: "",
