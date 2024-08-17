@@ -91,12 +91,35 @@ const SignUp = () => {
                     name="username"
                     id="username"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
-                    placeholder="John Doe"
+                    placeholder="Full Name"
                     required
                     value={formData.username}
                     onChange={handleChange}
                   />
+
                 </div>
+
+                <div>
+                  <label
+                    htmlFor="username"
+                    className="block mb-2 text-sm font-medium text-gray-900"
+                  >
+                    Address
+                  </label>
+                  <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
+                    placeholder="Your Current Address"
+                    required
+                    value={formData.username}
+                    onChange={handleChange}
+                  />
+
+                </div>
+                
+
                 <div>
                   <label
                     htmlFor="phone"
@@ -109,7 +132,7 @@ const SignUp = () => {
                     name="phone"
                     id="phone"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
-                    placeholder="0000000000"
+                    placeholder="Phone Number"
                     required
                     value={formData.phone}
                     onChange={handleChange}
@@ -127,7 +150,7 @@ const SignUp = () => {
                     name="email"
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
-                    placeholder="name@company.com"
+                    placeholder="email"
                     required
                     value={formData.email}
                     onChange={handleChange}
@@ -148,24 +171,6 @@ const SignUp = () => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                     required
                     value={formData.password}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="confirmPassword"
-                    className="block mb-2 text-sm font-medium text-gray-900"
-                  >
-                    Confirm password
-                  </label>
-                  <input
-                    type="password"
-                    name="confirmPassword"
-                    id="confirmPassword"
-                    placeholder="••••••••"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
-                    required
-                    value={formData.confirmPassword}
                     onChange={handleChange}
                   />
                 </div>
