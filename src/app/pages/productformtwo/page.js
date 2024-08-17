@@ -5,7 +5,7 @@ import Footer from "@/app/components/footer/page";
 import Link from "next/link";
 import TopNavbar from "@/app/components/topnavbar/page";
 
-const ProductForm = () => {
+const ProductFormTwo = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -90,30 +90,28 @@ const ProductForm = () => {
           </div>
 
           <div>
-          <label>Category:</label>
-          <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            required
-          >
-            <option value="">Select Category</option>
-            <option value="DAILY_PRD">DAILY PRODUCTS</option>
-            <option value="MILK">MILK</option>
-            <option value="BREAD">BREAD</option>
-            <option value="GROCERY">GROCERY</option>
-            <option value="BREAKFAST">BREAKFAST</option>
-            <option value="TEA">TEA</option>
-            <option value="COFFE">COFFE</option>
-            <option value="FRUITS">FRUITS</option>
-            <option value="VEGETABLES">VEGETABLES</option>
-            <option value="BEVERAGE">BEVERAGE</option>
-            <option value="BODYCARE">BODYCARE</option>
-            <option value="COSMETIC">COSMETIC</option>
-            <option value="HEALTHCARE">HEALTHCARE</option>
-            <option value="FASHION">FASHION</option>
-            <option value="GIFTS">GIFTS</option>
-          </select>
-        </div>
+            <label className="block text-gray-700 font-medium mb-2">Category:</label>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              required
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            >
+              <option value="">Select Category</option>
+              <option value="Fruits & Vegetables">Fruits & Vegetables</option>
+              <option value="Eggs, Meat & Fish">Eggs, Meat & Fish</option>
+              <option value="Rice, Atta & Dal">Rice, Atta & Dal</option>
+              <option value="Oil, Masala & Sauces">Oil, Masala & Sauces</option>
+              <option value="Snacks & Biscuits">Snacks & Biscuits</option>
+              <option value="Instant Food">Instant Food</option>
+              <option value="Dairy & Bread">Dairy & Bread</option>
+              <option value="Chocolates & Ice Creams">Chocolates & Ice Creams</option>
+              <option value="Breakfast Food">Breakfast Food</option>
+              <option value="Tea & Coffee">Tea & Coffee</option>
+              <option value="Health & Nutrition">Health & Nutrition</option>
+            </select>
+          </div>
+
           <div>
             <label className="block text-gray-700 font-medium mb-2">Images:</label>
             <input
@@ -133,16 +131,15 @@ const ProductForm = () => {
           </button>
         </form>
 
-        {/* <Link href="/">
+        <Link href="/pages/viewdeleteproducts">
           <span className="block text-center mt-4 text-red-600 font-semibold hover:text-red-700 cursor-pointer">
             View & Delete Product
           </span>
         </Link>
-         */}
       </div>
       <Footer />
     </div>
   );
 };
 
-export default ProductForm;
+export default ProductFormTwo;

@@ -7,6 +7,13 @@ import helperImg from "../../../../public/marasImg/helper.jpg";
 import cabImg from "../../../../public/marasImg/cabimg.png";
 import hotelImg from "../../../../public/marasImg/hotelimg.png";  
 import tripImg from "../../../../public/marasImg/planetrip.jpeg";  
+
+
+import computerImg from "../../../../public/category/computerImg.jpeg";
+import schoolImg from "../../../../public/category/schoolimage.jpeg";  
+
+
+
 const ShopByCategoryThree = () => {
   return (
     <>
@@ -50,7 +57,7 @@ const ShopByCategoryThree = () => {
           <div className="round_container">
             <Link href="/">
               <Image
-                src={helperImg}
+                src={computerImg}
                 className="round_contaner_img"
                 alt="img"
               />
@@ -62,7 +69,7 @@ const ShopByCategoryThree = () => {
           <div className="round_container">
           <Link href="/pages/categoryPrd/schoolcart">
               <Image
-                src={hotelImg}
+                src={schoolImg}
                 className="round_contaner_img"
                 alt="img"
               />

@@ -9,6 +9,12 @@ import fruitvegeimg from "../../../../public/category/fruitvege.png";
 import teacoffe from "../../../../public/category/teacoffe.png";  
 import hotelimg from "../../../../public/category/bevrages.png"; 
 import breakfast from "../../../../public/category/breakfast.png"; 
+
+
+import eggsImg from "../../../../public/category/eggs.jpeg";  
+import BiscuitsImg from "../../../../public/category/biscuit.png"; 
+import ChoklatesImg from "../../../../public/category/choklates.jpeg"; 
+
 const ShopByCategory = () => {
   return (
     <>
@@ -87,11 +93,11 @@ const ShopByCategory = () => {
                 <div className="round_container">
             <Link href="/">
               <Image
-                src={teacoffe}
+                src={eggsImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Tea&Coffe</p>
+              <p className="txt_container">Eggs</p>
             </Link>
           </div>
 
@@ -99,11 +105,11 @@ const ShopByCategory = () => {
           <div className="round_container">
             <Link href="/">
               <Image
-                src={fruitvegeimg}
+                src={BiscuitsImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Fruit&Vege</p>
+              <p className="txt_container">Snack & Biscuits</p>
             </Link>
           </div>
 
@@ -111,11 +117,11 @@ const ShopByCategory = () => {
           <div className="round_container">
             <Link href="/">
               <Image
-                src={hotelimg}
+                src={ChoklatesImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">beverage</p>
+              <p className="txt_container">Choklates</p>
             </Link>
           </div>
           -

@@ -8,7 +8,7 @@ import "./banner2.css"
 
 import { Autoplay, Pagination } from "swiper/modules";
 import Image from "next/image";
-import banner1 from "../../../../public/banner1.png"; 
+import banner1 from "../../../../public/bannerimg.png"; 
 import banner2 from "../../../../public/banner2.png";  
 
 const Banner2 = () => {
