@@ -474,7 +474,7 @@ const Register = () => {
               required
             />
             <div>
-              <label className="block font-semibold">Who will receive the payment?</label>
+              <label className="block font-semibold">In which Account you want to revice payment?</label>
               <div className="space-x-4">
                 <label className="inline-flex items-center">
                   <input

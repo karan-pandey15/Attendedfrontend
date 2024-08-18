@@ -6,6 +6,7 @@ import ShopByCategory from "./components/shopbycategory/page";
 import ShopByCategoryFour from "./components/shopCategoryFour/page";
 import ShopByCategoryThree from "./components/shopCategoryThree/page";
 import TopNavbar from "./components/topnavbar/page";
+import ShopByCategoryFive from './components/shopcategoryfive/page';
 
 export default function Home() {
   return (
@@ -46,6 +47,18 @@ export default function Home() {
       <section>
         <ShopByCategoryFour />
       </section>
+
+      
+      <section>
+        <Banner2 />
+      </section>
+
+      <section>
+        <ShopByCategoryFive />
+      </section>
+      
+
+       
 
       <div style={{ height: '100px' }}></div>
 

@@ -4,49 +4,48 @@ import Image from "next/image";
 import Link from "next/link";
 import "./Categofystyle.css";
 
-import LahangaImg from "../../../../public/category/lahangaimg.jpeg"; 
-import BusinessImg from "../../../../public/category/suitImg.jpeg"; 
-import fashionImg from "../../../../public/category/suitImg.jpeg"; 
-import kidsFashionImg from "../../../../public/category/kidsfasImg.jpeg"; 
-import cosmeticImg from "../../../../public/category/cosmeticimg.jpeg"; 
-import BeautyPrdmenImg from "../../../../public/category/bodycare.jpeg"; 
-import bathImg from "../../../../public/category/dailyPrd.jpeg"; 
-import WatchesImg from "../../../../public/category/watches.jpeg"; 
+import ChoklatesImg from "../../../../public/category/choklates.jpeg"; 
+import flighBookImg from "../../../../public/category/flightBookimg.jpeg"; 
+import kitchenImg from "../../../../public/category/kitchenImg.jpeg"; 
+import showlights from "../../../../public/category/wallLight.jpeg"; 
+import bathImg from "../../../../public/category/bathFittingprd.jpeg"; 
+import carImg from "../../../../public/category/carImg.jpeg"; 
+import petFood from "../../../../public/category/potImg.jpeg"; 
+
+
+import hotelImg from "../../../../public/marasImg/hotelimg.png";
+
+import planTripImg from "../../../../public/category/planTripImg.jpeg"; 
 
 
 
-import adultImg from "../../../../public/category/fashionadult.jpeg"; 
 
 
-
-
-const ShopByCategoryFour = () => {
+const ShopByCategoryFive = () => {
   return (
     <>
       <section style={{ backgroundColor: "#fff",marginTop:'20px' }}>
         {/* <h1 className="four_heading_div">Explore by Category</h1> */}
-        <div className="four_div_container">
-      
-
+        <div className="four_div_container"> 
           <div className="round_container">
             <Link href="/">
               <Image
-                src={LahangaImg}
+                src={hotelImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Lahanga Try & Buy</p>
+              <p className="txt_container">Hotel Booking</p>
             </Link>
           </div>
 
           <div className="round_container">
             <Link href="/">
               <Image
-                src={BusinessImg}
+                src={planTripImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Business Suit</p>
+              <p className="txt_container">Plan a Trip</p>
             </Link>
           </div>
 
@@ -56,33 +55,33 @@ const ShopByCategoryFour = () => {
           <div className="round_container">
             <Link href="/">
               <Image
-                src={adultImg}
+                src={flighBookImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Fashion for Adult</p>
+              <p className="txt_container">FLight Booking</p>
             </Link>
           </div>
 
           <div className="round_container">
             <Link href="/">
               <Image
-                src={kidsFashionImg}
+                src={kitchenImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Kids Fashion</p>
+              <p className="txt_container">Kitchen Product</p>
             </Link>
           </div>
 
           <div className="round_container">
             <Link href="/">
               <Image
-                src={cosmeticImg}
+                src={showlights}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Cosmetic</p>
+              <p className="txt_container">Show Lights</p>
             </Link>
           </div>
 
@@ -93,7 +92,7 @@ const ShopByCategoryFour = () => {
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Bath & Body</p>
+              <p className="txt_container">Bath Fitting Products</p>
             </Link>
           </div>
  
@@ -101,11 +100,11 @@ const ShopByCategoryFour = () => {
           <div  className="round_container">
             <Link href="/">
               <Image
-                src={BeautyPrdmenImg}
+                src={carImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Beauty Products for Men</p>
+              <p className="txt_container">Car Accessories</p>
             </Link>
           </div>
           
@@ -113,11 +112,11 @@ const ShopByCategoryFour = () => {
           <div className="round_container">
             <Link href="/">
               <Image
-                src={WatchesImg}
+                src={petFood}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">Watches & Beauty Accessories</p>
+              <p className="txt_container">Pet Food</p>
             </Link>
           </div>
           
@@ -128,4 +127,4 @@ const ShopByCategoryFour = () => {
   );
 };
 
-export default ShopByCategoryFour;
+export default ShopByCategoryFive;
