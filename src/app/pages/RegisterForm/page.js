@@ -130,7 +130,7 @@ const Register = () => {
         return (
           <div className="space-y-2">
             <label className="block font-semibold">Select Activities:</label>
-            {['Pick From School', 'Drop him/her', 'Go for Shopping', 'Other Activity'].map((option, index) => (
+            {['Dropping School, Tutuin' , 'Go for Shopping, Market', 'Travelling With Kids', 'Other Activity'].map((option, index) => (
               <div key={index} className="flex items-center">
                 <input
                   type="checkbox"
@@ -149,7 +149,7 @@ const Register = () => {
         return (
           <div className="space-y-2">
             <label className="block font-semibold">Select Services:</label>
-            {['Pay Bill', 'Shopping For Me', 'Go with Relatives/Friends', 'PickUp Someone'].map((option, index) => (
+            {['For hospital Visit', 'For Shopping', 'For bank passbook Updation'].map((option, index) => (
               <div key={index} className="flex items-center">
                 <input
                   type="checkbox"
@@ -202,6 +202,17 @@ const Register = () => {
                 className="p-3 border border-gray-300 rounded"
                 required
               />
+
+<input
+                type="text"
+                name="fathername"
+                value={formData.fathhername}
+                onChange={handleChange}
+                placeholder="Father Name"
+                className="p-3 border border-gray-300 rounded"
+                required
+              />
+              
               <input
                 type="email"
                 name="email"
@@ -243,7 +254,7 @@ const Register = () => {
             >
               <option value="">Select Category</option>
               <option value="Guardian for Children">Guardian for Children</option>
-              <option value="Guardian for Self">Guardian for Self</option>
+              <option value="Guardian for Self">Attendant For your Parents</option>
               <option value="Others">Others</option>
             </select>
             {renderGuardianOptions()}
@@ -463,6 +474,17 @@ const Register = () => {
                 className="p-3 border border-gray-300 rounded"
                 required
               />
+
+<input
+                type="text"
+                name="branchname"
+                value={formData.branch}
+                onChange={handleChange}
+                placeholder="Branch Name "
+                className="p-3 border border-gray-300 rounded"
+                required
+              />
+              
             </div>
             <input
               type="text"
@@ -608,7 +630,7 @@ const Register = () => {
           <div className="space-y-4">
             <h2 className="text-xl font-semibold mb-4">Upload Documents</h2>
             <div>
-              <label className="block font-semibold">Upload Marksheet:</label>
+              <label className="block font-semibold">Upload Higher Education Proof:</label>
               <input
                 type="file"
                 name="marksheet"
@@ -618,7 +640,7 @@ const Register = () => {
               />
             </div>
             <div>
-              <label className="block font-semibold">Upload Image:</label>
+              <label className="block font-semibold">Upload Image Pan, addhar(Both Side),Selfie:</label>
               <input
                 type="file"
                 name="image"
@@ -628,7 +650,7 @@ const Register = () => {
               />
             </div>
             <div>
-              <label className="block font-semibold">Upload Cancelled Check or Passbook:</label>
+              <label className="block font-semibold">Upload Cheque:</label>
               <input
                 type="file"
                 name="checkBook"
