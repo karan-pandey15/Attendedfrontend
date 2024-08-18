@@ -7,14 +7,14 @@ import "./Categofystyle.css";
 import spicesImg from "../../../../public/category/spices.jpeg"; 
 import giftsImg from "../../../../public/category/gifts.jpeg"; 
 import snacksImgg from "../../../../public/category/biscuit.png"; 
-import soupImg from "../../../../public/category/suitImg.jpeg"; 
+import soupImg from "../../../../public/category/soupsouse.jpeg"; 
 import BeverageImg from "../../../../public/category/bevrages.png"; 
 
 
 import vegeImg from "../../../../public/category/fruitvege.png"; 
 import ChocolatesImg from "../../../../public/category/choklates.jpeg"; 
 import TeaCoffeImg from "../../../../public/category/teacoffe.png"; 
-import cleaningPrdImg from "../../../../public/category/dailyPrd.jpeg"; 
+import cleaningPrdImg from "../../../../public/category/cleaningprd.jpeg"; 
   
 
 
