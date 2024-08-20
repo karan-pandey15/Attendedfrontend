@@ -11,19 +11,15 @@ import HealthyFoodImg from "../../../../public/category/healthyfood.jpeg";
 import pureDairyImg from "../../../../public/category/dairyprdimg.jpeg";  
 import Grocery from "../../../../public/category/grocery.png";  
 import computerImg from "../../../../public/category/computerImg.jpeg";  
-import potImg from "../../../../public/category/potImg.jpeg";  
+import kidsLunchImg from "../../../../public/category/kidsLunch.jpeg";  
+
+import driverImg from "../../../../public/category/driver.jpeg";  
 
 
 
 import planTripImg from "../../../../public/category/planTripimgg.jpeg";  
 
-
-
-
-
-
-
-
+ 
 const ShopByCategory = () => {
   return (
     <>
@@ -31,7 +27,7 @@ const ShopByCategory = () => {
         {/* <h1 className="four_heading_div">Explore by Category</h1> */}
         <div className="four_div_container">
           <div className="round_container">
-            <Link href="/">
+            <Link href="/pages/subCategory/cab">
               <Image
                 src={cabImg}
                 className="round_contaner_img"
@@ -40,9 +36,24 @@ const ShopByCategory = () => {
               <p className="txt_container">Cab Booking</p>
             </Link>
           </div>
+ 
+          <div className="round_container">
+          <Link href="/pages/subCategory/driver">
+              <Image
+                src={driverImg}
+                className="round_contaner_img"
+                alt="img"
+              />
+              <p className="txt_container">Book a Driver</p>
+            </Link>
+          </div>
+
+          
+
 
           <div className="round_container">
-            <Link href="/">
+          <Link href="/pages/subCategory/attendate">
+
               <Image
                 src={helperImg}
                 className="round_contaner_img"
@@ -53,19 +64,35 @@ const ShopByCategory = () => {
           </div>
 
           <div className="round_container">
-            <Link href="/">
+          <Link href="/pages/subCategory/school">
+          
+             
               <Image
                 src={schoolImg}
                 className="round_contaner_img"
                 alt="img"
               />
-              <p className="txt_container">School</p>
+              <p className="txt_container">School Collections</p>
+            </Link>
+          </div>
+
+
+          <div className="round_container">
+           
+          <Link href="/pages/subCategory/schoolLunch">
+              <Image
+                src={kidsLunchImg}
+                className="round_contaner_img"
+                alt="img"
+              />
+              <p className="txt_container">School Lunch</p>
             </Link>
           </div>
 
     
           <div className="round_container">
-            <Link href="/">
+            
+          <Link href="/pages/subCategory/healthyfood">
               <Image
                 src={HealthyFoodImg}
                 className="round_contaner_img"
@@ -100,7 +127,7 @@ const ShopByCategory = () => {
           </div>
 
                 <div className="round_container">
-            <Link href="/">
+                <Link href="/pages/categoryPrd/milk"> 
               <Image
                 src={MilkBreadimg}
                 className="round_contaner_img"
@@ -112,7 +139,7 @@ const ShopByCategory = () => {
 
 
           <div className="round_container">
-            <Link href="/pages/categoryPrd/milk">
+            <Link href="/pages/subCategory/computerrent">
               <Image
                 src={computerImg}
                 className="round_contaner_img"
@@ -124,7 +151,7 @@ const ShopByCategory = () => {
 
 
           <div className="round_container">
-            <Link href="/">
+          <Link href="/pages/subCategory/plantrip">
               <Image
                 src={planTripImg}
                 className="round_contaner_img"
@@ -132,21 +159,7 @@ const ShopByCategory = () => {
               />
               <p className="txt_container">Plan a Trip</p>
             </Link>
-          </div>
-
-
-          <div className="round_container">
-            <Link href="/">
-              <Image
-                src={potImg}
-                className="round_contaner_img"
-                alt="img"
-              />
-              <p className="txt_container">Live Tree & Pot</p>
-            </Link>
-          </div>
-          
-
+          </div> 
         </div>
       </section>
     </>

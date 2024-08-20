@@ -10,7 +10,8 @@ import kitchenImg from "../../../../public/category/kitchenImg.jpeg";
 import showlights from "../../../../public/category/wallLight.jpeg"; 
 import bathImg from "../../../../public/category/bathFittingprd.jpeg"; 
 import carImg from "../../../../public/category/carImg.jpeg"; 
-import petFood from "../../../../public/category/potImg.jpeg"; 
+import petFood from "../../../../public/category/petImg.jpeg";  
+import potImg from "../../../../public/category/potImg.jpeg"; 
 
 
 import hotelImg from "../../../../public/marasImg/hotelimg.png";
@@ -120,6 +121,17 @@ const ShopByCategoryFive = () => {
             </Link>
           </div>
           
+
+             <div className="round_container">
+            <Link href="/">
+              <Image
+                src={potImg}
+                className="round_contaner_img"
+                alt="img"
+              />
+              <p className="txt_container">Live Tree & Pot</p>
+            </Link>
+          </div>
 
         </div>
       </section>
