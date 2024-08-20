@@ -104,7 +104,7 @@ const ShopByCategory = () => {
 
 
           <div className="round_container">
-            <Link href="/">
+          <Link href="/pages/subCategory/puredairyprd"> 
               <Image
                 src={pureDairyImg}
                 className="round_contaner_img"

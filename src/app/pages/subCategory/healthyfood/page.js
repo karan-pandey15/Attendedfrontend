@@ -11,20 +11,11 @@ export default function Cab() {
     <div className="container"> 
 
       <div className="categories">
-        <h2 className="sectionTitle">School Collections</h2>
+        <h2 className="sectionTitle">Healthy Food</h2>
         <div className="categoryRow">
           <div className="categoryItem">
-        <Link href="/pages/subCategory/school">
-            <Image src="/marasImg/helper.jpg" alt="driver" width={80} height={80} />
-            <p className='sub-para' >Uniform </p>
-        </Link>
-          </div>
-
-
-        
-          <div className="categoryItem">
           <Link href="/pages/subCategory/school">
-            <Image src="/marasImg/helper.jpg" alt="cabimg" width={80} height={80} />
+            <Image src="/category/sprouts.jpeg" alt="cabimg" width={80} height={80} />
             <p>Sprouts</p>
           </Link>
           </div>
@@ -33,7 +24,7 @@ export default function Cab() {
 
           <div className="categoryItem">
           <Link href="/pages/subCategory/school">
-            <Image src="/marasImg/helper.jpg" alt="cabimg" width={80} height={80} />
+            <Image src="/category/boiledEgg.jpeg" alt="cabimg" width={80} height={80} />
             <p>Boiled egg</p>
           </Link>
           </div>
@@ -41,7 +32,7 @@ export default function Cab() {
 
           <div className="categoryItem">
           <Link href="/pages/subCategory/school">
-            <Image src="/marasImg/helper.jpg" alt="cabimg" width={80} height={80} />
+            <Image src="/category/mixFruit.jpeg" alt="cabimg" width={80} height={80} />
             <p>Mix Fruit chat Pack</p>
           </Link>
           </div>
@@ -51,7 +42,7 @@ export default function Cab() {
 
           <div className="categoryItem">
           <Link href="/pages/subCategory/school">
-            <Image src="/marasImg/helper.jpg" alt="cabimg" width={80} height={80} />
+            <Image src="/category/chach.jpeg" alt="cabimg" width={80} height={80} />
             <p>Chach</p>
           </Link>
           </div>
@@ -61,7 +52,7 @@ export default function Cab() {
 
           <div className="categoryItem">
           <Link href="/pages/subCategory/school">
-            <Image src="/marasImg/helper.jpg" alt="cabimg" width={80} height={80} />
+            <Image src="/category/misPeanut.jpeg" alt="cabimg" width={80} height={80} />
             <p>Mix Peanut Masala Pack</p>
           </Link>
           </div>
