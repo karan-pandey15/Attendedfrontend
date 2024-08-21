@@ -88,7 +88,7 @@ const ShopByCategory = () => {
     
           <div className="round_container">
             
-          <Link href="/pages/subCategory/healthyfood">
+          <Link href="/pages/categoryProduct/healthyfood">
               <Image
                 src={HealthyFoodImg}
                 className="round_contaner_img"
