@@ -3,8 +3,8 @@ import { IoHomeOutline } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
 import "./footerstyle.css";
 import { FaBasketShopping } from "react-icons/fa6"; 
-import { GrUserWorker } from "react-icons/gr"; 
-import { FaWpforms } from "react-icons/fa";
+import { GrUserWorker } from "react-icons/gr";  
+import { BiCategory } from "react-icons/bi";
 const Footer = () => {
   return (
     <div style={{ backgroundColor: "#fff" }}>
@@ -196,10 +196,10 @@ const Footer = () => {
             </div>
           </Link>
 
-          <Link href="/pages/RegisterForm">
+          <Link href="/">
             <div className="small_container">
-              <FaWpforms />
-              <p className="small_footer_para">Register</p>
+              <BiCategory />
+              <p className="small_footer_para">Category</p>
             </div>
           </Link>
 

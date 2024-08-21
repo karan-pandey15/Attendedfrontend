@@ -28,7 +28,7 @@ const ProductForm = () => {
     images.forEach((image) => formData.append("images", image));
 
     try {
-      const response = await fetch("https://api.keeva.in/api/products", {
+      const response = await fetch("http://localhost:5010/api/products", {
         method: "POST",
         body: formData,
       });
@@ -102,6 +102,7 @@ const ProductForm = () => {
             <option value="BREAD">BREAD</option>
             <option value="GROCERY">GROCERY</option>
             <option value="BREAKFAST">BREAKFAST</option>
+            <option value="HEALTHY_FOOD">HEALTHY FOOD</option>
             <option value="TEA">TEA</option>
             <option value="COFFE">COFFE</option>
             <option value="FRUITS">FRUITS</option>

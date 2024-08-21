@@ -1,50 +1,23 @@
-// "use client";
-// import { createSlice } from "@reduxjs/toolkit";
+ 
 
-// const cartSlice = createSlice({
-//   name: "Cart",
-//   initialState: [],
-//   reducers: {
-//     add(state, action) {
-//       const existingItem = state.find((item) => item.id === action.payload.id);
-//       if (existingItem) {
-//         existingItem.quantity += action.payload.quantity;
-//       } else {
-//         state.push(action.payload);
-//       }
-//     },
-//     remove(state, action) {
-//       return state.filter((item) => item.id !== action.payload);
-//     },
-//   },
-// });
-
-// export const { add, remove } = cartSlice.actions;
-// export default cartSlice.reducer;
-
-"use client";
+// Cartslice.js
 import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
   name: "Cart",
   initialState: [],
   reducers: {
+    setCart(state, action) {
+      return action.payload; // Update the cart state with the loaded cart data
+    },
     add(state, action) {
-      const existingItem = state.find((item) => item.id === action.payload.id);
-      if (existingItem) {
-        existingItem.quantity += action.payload.quantity;
-      } else {
-        state.push(action.payload);
-      }
+      state.push(action.payload); // Add new product to the state array
     },
     remove(state, action) {
-      return state.filter((item) => item.id !== action.payload);
-    },
-    checkout(state) {
-      return [];
-    },
-  },
+      return state.filter(item => item._id !== action.payload); // Ensure _id is used
+    }
+  }
 });
 
-export const { add, remove, checkout } = cartSlice.actions;
+export const { setCart, add, remove } = cartSlice.actions;
 export default cartSlice.reducer;

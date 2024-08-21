@@ -52,7 +52,7 @@ export default function Cab() {
           <div className="categoryItem">
           <Link href="/pages/subCategory/school">
             <Image src="/marasImg/cabimg.png" alt="cabimg" width={80} height={80} />
-            <p>Cab</p>
+            <p>School Cab</p>
           </Link>
           </div>
           

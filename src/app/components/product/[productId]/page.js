@@ -1,220 +1,239 @@
-// "use client";
-// import { usePathname } from "next/navigation";
-// import { useState } from "react";
-// import { useDispatch } from "react-redux";
-// import { add } from "@/Redux/Cartslice";
-// import { PopularNearYouProducts } from "../../popularnearyou/popularnearyou_products";
-// import Image from "next/image";
-// import "./product.css";
-// import TopNavbar from "../../topnavbar/page";
-// import Navbar from "../../navbar/page";
-// import Footer from "../../footer/page";
-
-// const ProductPage = () => {
-//   const pathname = usePathname();
-//   const productId = pathname.split("/").pop();
-
-//   const product = PopularNearYouProducts.find(
-//     (product) => product.productId === productId
-//   );
-
-//   const [mainImage, setMainImage] = useState(product?.productImage);
-//   const [quantity, setQuantity] = useState(1);
-
-//   const dispatch = useDispatch();
-
-//   // const handleadd =(product)=>{
-//   //    dispatch(add(product));
-//   // }
-
-//   const handleadd = (product) => {
-//     dispatch(add({ ...product, quantity }));
-//   };
-
-//   if (!product) {
-//     return <div>Product not found</div>;
-//   }
-
-//   return (
-//     <>
-//       <TopNavbar />
-//       <Navbar />
-//       <div className="w-full flex justify-center items-center">
-//         <div className="flex justify-evenly w-[80%] py-8 product-page-main_div">
-//           <div style={{ width: "40%" }} className="product_page_img_main_div">
-//             <div
-//               className="product_main_image"
-//               style={{ width: "280px", height: "380px" }}
-//             >
-//               <Image
-//                 style={{ width: "100%", height: "100%" }}
-//                 src={mainImage}
-//                 alt={product.productName}
-//               />
-//             </div>
-//             <div className="flex justify-center items-center py-4">
-//               {product.subImages.map((subImage, index) => (
-//                 <div key={index} className="mx-2 cursor-pointer">
-//                   <Image
-//                     src={subImage.img}
-//                     alt={`${product.productName} sub-image ${index + 1}`}
-//                     onClick={() => setMainImage(subImage.img)}
-//                     style={{ width: "100px", height: "70px" }}
-//                   />
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//           <div className="w-[40%] product_page_text_main_div">
-//             <h1 className="text-2xl font-medium">{product.productName}</h1>
-//             <p className="py-2">{product.description}</p>
-//             <p className="py-2 text-xl">{product.rating}</p>
-//             <h4 className="text-xl font-semibold py-2">₹{product.price}</h4>
-//             <div className="py-2">
-//               <label className="font-medium text-xl">Qty:</label>
-//               <input
-//                 type="number"
-//                 style={{
-//                   border: "1px solid gray",
-//                   padding: "5px 8px",
-//                   width: "100px",
-//                   borderRadius: "4px",
-//                 }}
-//                 value={quantity}
-//                 onChange={(e) => setQuantity(parseInt(e.target.value))}
-//                 className="mx-4"
-//               />
-//             </div>
-//             <button
-//               className="bg-yellow-500 py-2 px-6 rounded-md mt-2 hover:bg-yellow-600 duration-300"
-//               onClick={() => handleadd(product)}
-//             >
-//               Add to Cart
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//       <Footer />
-//     </>
-//   );
-// };
-
-// export default ProductPage;
-
-"use client";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { add } from "@/Redux/Cartslice";
-import { PopularNearYouProducts } from "../../popularnearyou/popularnearyou_products";
-import Image from "next/image";
+ 'use client';
+import React, { useState, useEffect } from 'react'; 
+import Image from 'next/image';  
+import Footer from '@/app/components/footer/page';
+import { usePathname } from 'next/navigation'; 
+import { useDispatch } from 'react-redux';
+import { add } from '@/Redux/Cartslice'; 
+import { toast } from 'react-toastify';
+import TopNavbar from '../../topnavbar/page';
 import "./product.css";
-import TopNavbar from "../../topnavbar/page";
-import Navbar from "../../navbar/page";
-import Footer from "../../footer/page";
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
-const ProductPage = () => {
-  const pathname = usePathname();
-  const productId = pathname.split("/").pop();
+const ProductsApi = "https://api.marasimpex.com/api/products";
 
-  const product = PopularNearYouProducts.find(
-    (product) => product.productId === productId
-  );
+export default function ProductDetails() {
+  const router = usePathname();
+  const id = router.split("/").pop();
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [displayedImage, setDisplayedImage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useDispatch(); // Redux dispatch
 
-  const [mainImage, setMainImage] = useState(product?.productImage);
-  const [quantity, setQuantity] = useState(1);
+  useEffect(() => {
+    if (id) {
+      const fetchProduct = async () => {
+        try {
+          const response = await fetch(`${ProductsApi}/${id}`);
+          if (response.ok) {
+            const data = await response.json();
+            setProduct(data);
+            setDisplayedImage(data.images[0]); // Set the initial displayed image
+          } else {
+            console.error('Failed to fetch product');
+          }
+        } catch (error) {
+          console.error('Error fetching product:', error);
+        } finally {
+          setLoading(false);
+        }
+      };
 
-  const renderStars = (rating) => {
-    const fullStars = Math.floor(rating);
-    const halfStar = rating % 1 !== 0;
-    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+      fetchProduct();
+    }
+  }, [id]);
+ 
 
-    return (
-      <div className="flex">
-        {Array(fullStars)
-          .fill()
-          .map((_, i) => (
-            <FaStar key={`full-${i}`} className="text-yellow-500" />
-          ))}
-        {halfStar && <FaStarHalfAlt className="text-yellow-500" />}
-        {Array(emptyStars)
-          .fill()
-          .map((_, i) => (
-            <FaRegStar key={`empty-${i}`} className="text-yellow-500" />
-          ))}
-      </div>
-    );
+  if (loading) return <div>Loading...</div>;
+  if (!product) return <div>Product not found</div>; 
+
+  const openModal = () => {
+    setIsModalOpen(true);
   };
 
-  const dispatch = useDispatch();
-
-  const handleAdd = (product) => {
-    dispatch(add({ ...product, quantity }));
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
-  if (!product) {
-    return <div>Product not found</div>;
-  }
+  const handleClickOutside = (event) => {
+    if (event.target.className === 'modal') {
+      closeModal();
+    }
+  };
+
+  const handleAddToWishlist = (product) => {
+    dispatch(add({ ...product, quantity: 1 }));
+    toast('Added to Wishlist', {
+      position: "bottom-center",
+      autoClose: 1000, // 1 second
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      progress: undefined,
+      style: {
+        backgroundColor: '#964B00',
+        color: 'white',
+        fontWeight: 'bold',
+      },
+    });
+  };
 
   return (
-    <>
+    <div>
       <TopNavbar />
-      <Navbar />
-      <div className="product-page-container">
-        <div className="product-page-content">
-          <div className="product-images">
-            <div className="main-image">
-              <Image
-                src={mainImage}
-                alt={product.productName}
-                layout="responsive"
-                width={280}
-                height={350}
-              />
-            </div>
-            <div className="sub-images">
-              {product.subImages.map((subImage, index) => (
-                <div
+      <div style={{ marginTop: '100px' }}>
+        <div className="product_detail_container">
+          <div className="all_img_container">
+            <Image
+              className="main_product_img"
+              src={displayedImage}
+              alt={product.name}
+              width={500}
+              height={500}
+              onClick={openModal}
+              style={{ objectFit: 'cover' }} 
+            />
+            <div className="additional_images">
+              {product.images.map((image, index) => (
+                <Image
                   key={index}
-                  className="sub-image"
-                  onClick={() => setMainImage(subImage.img)}
-                >
-                  <Image
-                    src={subImage.img}
-                    alt={`${product.productName} sub-image ${index + 1}`}
-                    width={100}
-                    height={100}
-                  />
-                </div>
+                  src={image}
+                  alt={`${product.name} - ${index + 1}`}
+                  width={80}
+                  height={100}
+                  onClick={() => setDisplayedImage(image)} // Change displayed image on click
+                  className="thumbnail_image"
+                  style={{ objectFit: 'cover' }} // Ensures image covers the entire area
+                />
               ))}
             </div>
           </div>
-          <div className="product-details">
-            <h1>{product.productName}</h1>
-            <p className="product-price">
-              <span className="current-price">₹{product.price}</span>
-              <span className="original-price">₹{product.originalPrice}</span>
-            </p>
-            <p style={{ fontSize: "1.2rem", marginBottom: "10px" }}>
-              {renderStars(product.rating)}
-            </p>
-            <p className="product-description">{product.description}</p>
-            <div className="quantity">
-              <label>Qty:</label>
-              <input
-                type="number"
-                value={quantity}
-                onChange={(e) => setQuantity(parseInt(e.target.value))}
-              />
-            </div>
-            <button onClick={() => handleAdd(product)}>Add to Cart</button>
+          <div className="content_container">
+            <button className="prodcut_button" onClick={() => handleAddToWishlist(product)}>Add To Wishlist</button>
+            <h2 className="product_heading">{product.name}</h2>
+            <p className="description">{product.description}</p>
+            <p className="price">₹{product.price}</p>
           </div>
         </div>
       </div>
       <Footer />
-    </>
+      {isModalOpen && (
+        <div className="modal" onClick={handleClickOutside}>
+          <div className="modal_content">
+            <span className="close_button" onClick={closeModal}>&times;</span>
+            <Image
+              src={displayedImage}
+              alt={product.name}
+              width={800}
+              height={800}
+              className="modal_image"
+              style={{ objectFit: 'cover' }} // Ensures image covers the entire area
+            />
+          </div>
+        </div>
+      )}
+      <style jsx>{`
+        .product_detail_container {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          margin: 40px; 
+        }
+        .all_img_container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-right: 20px;
+        }
+        .main_product_img {
+          width: 400px;
+          height: 400px;
+          cursor: pointer;
+          object-fit: cover;
+        }
+        .additional_images {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+          margin-top: 10px;
+        }
+        .thumbnail_image {
+          cursor: pointer;
+          width: 80px;
+          height: 100px;
+          object-fit: cover;
+        }
+        .content_container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          max-width: 400px;
+        }
+        .product_heading {
+          font-size: 24px;
+          margin: 10px 0;
+        }
+        .description {
+          margin: 10px 0;
+        }
+        .price {
+          font-size: 20px;
+          color: green;
+          margin: 10px 0;
+        }
+        @media (max-width: 768px) {
+          .main_product_img {
+            width: 90%;
+            height: auto;
+          }
+          .additional_images {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+          .content_container {
+            width: 90%;
+            margin-top: 20px;
+          } 
+        }
+        .modal {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.8);
+          z-index: 1000;
+        }
+        .modal_content {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .modal_image {
+          max-width: 80%;
+          max-height: 80%;
+          object-fit: cover;
+        }
+        .close_button {
+          position: absolute;
+          top: 14px;
+          right: 10px;
+          font-size: 60px; 
+          cursor: pointer; 
+          color: black;
+          font-weight: bolder;
+        }
+      `}</style>
+    </div>
   );
-};
-
-export default ProductPage;
+}

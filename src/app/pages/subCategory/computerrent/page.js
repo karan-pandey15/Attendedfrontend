@@ -32,6 +32,12 @@ export default function Driver() {
           </div>
 
 
+          <div className="categoryItem">
+            <Image src="/category/desktop.jpeg" alt="cabimg" width={80} height={80} />
+            <p>DeskTop on Rent</p>
+          </div>
+          
+
 
           <div className="categoryItem">
             <Image src="/category/driver.jpeg" alt="driver" width={80} height={80} />

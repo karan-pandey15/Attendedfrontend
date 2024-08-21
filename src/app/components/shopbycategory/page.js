@@ -11,12 +11,8 @@ import HealthyFoodImg from "../../../../public/category/healthyfood.jpeg";
 import pureDairyImg from "../../../../public/category/dairyprdimg.jpeg";  
 import Grocery from "../../../../public/category/grocery.png";  
 import computerImg from "../../../../public/category/computerImg.jpeg";  
-import kidsLunchImg from "../../../../public/category/kidsLunch.jpeg";  
-
+import kidsLunchImg from "../../../../public/category/kidsLunch.jpeg";   
 import driverImg from "../../../../public/category/driver.jpeg";  
-
-
-
 import planTripImg from "../../../../public/category/planTripimgg.jpeg";  
 
  
@@ -104,7 +100,7 @@ const ShopByCategory = () => {
 
 
           <div className="round_container">
-          <Link href="/pages/subCategory/puredairyprd"> 
+          <Link href="/pages/categoryProduct/dairyprd"> 
               <Image
                 src={pureDairyImg}
                 className="round_contaner_img"
@@ -116,7 +112,7 @@ const ShopByCategory = () => {
 
 
           <div className="round_container">
-            <Link href="/">
+          <Link href="/pages/categoryProduct/grocery"> 
               <Image
                 src={Grocery}
                 className="round_contaner_img"
@@ -127,7 +123,7 @@ const ShopByCategory = () => {
           </div>
 
                 <div className="round_container">
-                <Link href="/pages/categoryPrd/milk"> 
+                <Link href="/pages/categoryProduct/milk"> 
               <Image
                 src={MilkBreadimg}
                 className="round_contaner_img"
