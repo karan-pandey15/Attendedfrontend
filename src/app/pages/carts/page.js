@@ -21,7 +21,7 @@ const CartPage = () => {
   const [paymentMethod, setPaymentMethod] = useState('');
   useEffect(() => {
     axios
-      .get("http://localhost:5010/api/user-data")
+      .get("https://api.marasimpex.com/api/user-data")
       .then((res) => {
         if (res.data.Status === "Success") {
           setAuth(true);
@@ -77,7 +77,7 @@ const CartPage = () => {
   const checkout = async () => {
     try {
       const user = JSON.parse(localStorage.getItem("user"));
-      const response = await fetch("http://localhost:5010/api/save-order", {
+      const response = await fetch("https://api.marasimpex.com/api/save-order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -188,7 +188,7 @@ const CartPage = () => {
   const paylaterCheckout = async () => {
     try {
       const user = JSON.parse(localStorage.getItem("user"));
-      const response = await fetch("http://localhost:5010/api/save-order", {
+      const response = await fetch("https://api.marasimpex.com/api/save-order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
