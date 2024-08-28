@@ -7,6 +7,7 @@ import ShopByCategoryFour from "./components/shopCategoryFour/page";
 import ShopByCategoryThree from "./components/shopCategoryThree/page";
 import TopNavbar from "./components/topnavbar/page";
 import ShopByCategoryFive from './components/shopcategoryfive/page';
+import TabBar from './components/tabbar/page';
 
 export default function Home() {
   return (
@@ -23,6 +24,9 @@ export default function Home() {
         <TopNavbar />
         <Navbar />
       </header>
+      <div>
+        <TabBar />
+      </div>
       
       <section>
         <Banner2 />
