@@ -10,6 +10,7 @@ import "./topnavbar.css";
 import { IoIosLogOut } from "react-icons/io";
 import { useRouter } from "next/navigation";
 
+import { FaHeart } from "react-icons/fa";
 import { useSelector } from "react-redux";
 
 const searchOptions = [
@@ -268,6 +269,12 @@ const TopNavbar = () => {
                 </span>
               )}
             </div>
+            <span className="text-white text-lg mr-4"> {/* Adjust the margin as needed */}
+  <Link href="/pages/carts" title="Cart">
+    <FaHeart />
+  </Link>
+</span>
+
             <div className="relative cart-icon">
               <span className="text-white text-lg flex items-center">
                 <Link href="/pages/carts" title="Cart">

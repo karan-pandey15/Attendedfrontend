@@ -8,6 +8,7 @@ import ShopByCategoryThree from "./components/shopCategoryThree/page";
 import TopNavbar from "./components/topnavbar/page";
 import ShopByCategoryFive from './components/shopcategoryfive/page';
 import TabBar from './components/tabbar/page';
+import SearchInput from './components/input/page';
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         <Navbar />
       </header>
       <div>
+        <SearchInput />
         <TabBar />
       </div>
       
