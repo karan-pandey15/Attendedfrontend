@@ -1,6 +1,4 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import React from "react"; 
 import TopNavbar from "../topnavbar/page";
 import Footer from "../footer/page";
 
@@ -9,7 +7,7 @@ const Category = () => {
      <div>
         <TopNavbar />
         <section className="bg-white mt-5">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
+      {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
         
         <div className="flex flex-col items-center">
           <Link href="/pages/subCategory/cab">
@@ -88,7 +86,7 @@ const Category = () => {
           </Link>
         </div>
 
-      </div>
+      </div> */}
     </section>
         <Footer />
      </div>
