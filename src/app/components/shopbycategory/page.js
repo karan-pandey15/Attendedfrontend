@@ -23,7 +23,7 @@ const ShopByCategory = () => {
         {/* <h1 className="four_heading_div">Explore by Category</h1> */}
         <div className="four_div_container">
           <div className="round_container">
-            <Link href="/pages/subCategory/cab">
+            <Link href="/pages/UserDashboard">
               <Image
                 src={cabImg}
                 className="round_contaner_img"

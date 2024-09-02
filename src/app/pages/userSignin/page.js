@@ -17,7 +17,7 @@ const LoginTwoPage = () => {
             const { token } = response.data;
             // Store token in localStorage
             localStorage.setItem('token', token);
-            router.push('/pages/userDashboard');
+            router.push('/pages/UserDashboard');
         } catch (err) {
             setError(err.response?.data?.message || 'An error occurred. Please try again.');
         }
