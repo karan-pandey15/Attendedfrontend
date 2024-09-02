@@ -9,7 +9,7 @@ import TopNavbar from '@/app/components/topnavbar/page';
 import Footer from '@/app/components/footer/page';
 
 // Update this URL to your actual backend API endpoint
-const ProductsApi = "https://api.marasimpex.com/api/products";
+const ProductsApi = "http://localhost:5010/api/products";
 
 export default function Grocerydisplay() {
   const [products, setProducts] = useState([]);

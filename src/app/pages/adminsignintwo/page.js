@@ -28,7 +28,7 @@ const SignIn = () => {
     const { email, password } = formData;
 
     if (email === "forpradeepmishra@gmail.com" && password === "9999781282") {
-      router.push("/pages/RegisterForm");
+      router.push("/pages/AttendedSignUp");
     } else {
       setError("Invalid email or password");
     }

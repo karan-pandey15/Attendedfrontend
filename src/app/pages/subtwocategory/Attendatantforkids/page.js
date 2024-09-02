@@ -14,7 +14,7 @@ export default function Cab() {
         <h2 className="sectionTitle">Guardian For Kids</h2>
         <div className="categoryRow">
           <div className="categoryItem">
-        <Link href="/pages/subCategory/subtwocategory">
+        <Link href="/pages/UserDashboard">
             <Image src="/marasImg/helper.jpg" alt="driver" width={80} height={80} />
             <p className='sub-para' >Dropping School, Tution </p>
         </Link>
@@ -23,7 +23,7 @@ export default function Cab() {
 
         
           <div className="categoryItem">
-          <Link href="/pages/subCategory/subtwocategory">
+          <Link href="/pages/UserDashboard">
             <Image src="/marasImg/helper.jpg" alt="cabimg" width={80} height={80} />
             <p>Go for Shopping,Market</p>
           </Link>
@@ -34,7 +34,7 @@ export default function Cab() {
 
         <div className="categoryRow">
           <div className="categoryItem">
-        <Link href="/pages/subCategory/subtwocategory">
+        <Link href="/pages/subCategory">
             <Image src="/marasImg/helper.jpg" alt="driver" width={80} height={80} />
             <p className='sub-para' >Travelling with Kids </p>
         </Link>

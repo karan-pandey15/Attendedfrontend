@@ -10,7 +10,7 @@ const TabBar = () => {
         <GrUserWorker className="h-5 w-5 text-black" />
         <span className="text-xs sm:text-sm font-medium">Attendant</span>
       </Link>
-      <Link href="/pages/subCategory/cab" className="flex items-center space-x-2 px-2 sm:px-4 py-1 sm:py-2 rounded-full hover:bg-gray-200 focus:bg-gray-300 border border-gray-300">
+      <Link href="/pages/UserDashboard" className="flex items-center space-x-2 px-2 sm:px-4 py-1 sm:py-2 rounded-full hover:bg-gray-200 focus:bg-gray-300 border border-gray-300">
         <FaTaxi className="h-5 w-5 text-black" />
         <span className="text-xs sm:text-sm font-medium">Cab</span>
       </Link>

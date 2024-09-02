@@ -23,7 +23,7 @@ export default function Cab() {
         <h2 className="sectionTitle">Book a Attendate</h2>
         <div className="categoryRow">
           <div className="categoryItem">
-        <Link href="/pages/subtwocategory/Attendatantforkids">
+        <Link href="/pages/userDashboard">
             <Image src="/marasImg/helper.jpg" alt="driver" width={80} height={80} />
             <p className='sub-para' >Guardian For Kids </p>
         </Link>
@@ -32,7 +32,7 @@ export default function Cab() {
 
         
           <div className="categoryItem">
-          <Link href="/pages/subtwocategory/AttendatantforParents">
+          <Link href="/pages/userDashboard">
             <Image src="/marasImg/helper.jpg" alt="cabimg" width={80} height={80} />
             <p>Attendante for Your Parents</p>
           </Link>
