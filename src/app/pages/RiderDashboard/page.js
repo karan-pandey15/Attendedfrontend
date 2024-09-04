@@ -4,9 +4,9 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import io from "socket.io-client";
-import TopNavbar from "@/app/components/topnavbar/page";
-
+import io from "socket.io-client"; 
+import { FiMenu } from "react-icons/fi";
+import Footer from "@/app/components/footer/page";
 const socket = io("http://localhost:5010"); // Adjust as necessary
 
 const RiderDashboard = () => {
@@ -180,7 +180,22 @@ const RiderDashboard = () => {
       case "Dashboard":
         return (
           <>
-            <TopNavbar />
+            <nav className="bg-gray-900 text-white p-4">
+            <div className="container mx-auto flex justify-between items-center">
+                {/* Left side: Maras text */}
+                <div className="text-xl font-bold">
+                    Maras
+                </div>
+                
+            
+
+                {/* Right side: Menu icon for small screens */}
+                <div onClick={toggleSidebar} className="flex md:hidden items-center">
+                    <FiMenu className="text-white text-2xl" />
+                </div>
+            </div>
+        </nav>
+        
             <div className="bg-white p-4 shadow rounded">
               <h2 className="text-gray-600 mb-4">Rider Dashboard</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
@@ -285,11 +300,14 @@ const RiderDashboard = () => {
                 )}
               </div>
             </div>
+
+            <Footer />
           </>
         );
       case "Profile":
         return (
           <div className="bg-white p-4 shadow rounded">
+            
             <h2 className="text-gray-600 mb-4">My Profile</h2>
             {rider && (
               <div>
@@ -440,7 +458,7 @@ const RiderDashboard = () => {
           </button>
         </div>
       </div>
-      <main className="flex-1 p-6 bg-gray-100 min-h-screen">
+      <main className="flex-1 bg-gray-100 min-h-screen">
         {renderContent()}
       </main>
       <div className="fixed top-4 right-4 md:hidden">
@@ -449,6 +467,7 @@ const RiderDashboard = () => {
           className="text-2xl cursor-pointer"
         />
       </div>
+      
     </div>
   );
 };

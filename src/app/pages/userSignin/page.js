@@ -2,6 +2,9 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import DashboardNavbar from '@/app/components/DashboardNavbar/page';
+import Footer from '@/app/components/footer/page';
+import Link from 'next/link';
 
 const LoginTwoPage = () => {
     const [email, setEmail] = useState('');
@@ -24,6 +27,8 @@ const LoginTwoPage = () => {
     };
 
     return (
+        <>
+        <DashboardNavbar />
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="w-full max-w-md p-6 space-y-4 bg-white rounded-lg shadow-lg">
                 <h1 className="text-3xl font-bold text-gray-900 text-center">User Login</h1>
@@ -58,8 +63,20 @@ const LoginTwoPage = () => {
                         Login
                     </button>
                 </form>
+                <div className="text-center mt-4">
+                    <p className="text-gray-600">
+                        Did not have an account?{' '}
+                        <Link href="/pages/UserRegister" className="text-blue-500 hover:underline">
+                            Sign Up
+                        </Link>
+                    </p>
+                </div>
+                
+                
             </div>
         </div>
+        <Footer />
+        </>
     );
 };
 

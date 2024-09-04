@@ -2,6 +2,9 @@
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import DashboardNavbar from "@/app/components/DashboardNavbar/page";
+import Footer from "@/app/components/footer/page";
+import Link from "next/link";
 
 const AttendedRegister = () => {
   const [formData, setFormData] = useState({
@@ -188,6 +191,7 @@ const AttendedRegister = () => {
 
   return (
     <div>
+      <DashboardNavbar />
       <div className="max-w-4xl mx-auto p-6 bg-white rounded-md sm:shadow-none">
         <h1 className="text-3xl font-bold mb-6">Register</h1>
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -565,11 +569,24 @@ const AttendedRegister = () => {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white p-3 rounded-md font-semibold hover:bg-blue-700"
+            className="w-full bg-blue-600 text-white p-3 rounded-md font-semibold hover:bg-blue-700 "
           >
             Register
           </button>
         </form>
+
+        <div className="text-center mt-4">
+                    <p className="text-gray-600">
+                        Already have an account?{' '}
+                        <Link href="/pages/AttendedSignin" className="text-blue-500 hover:underline">
+                            SignIn
+                        </Link>
+                    </p>
+                </div>
+                
+      </div>
+      <div style={{marginBottom:'50px'}} >
+      <Footer />
       </div>
     </div>
   );

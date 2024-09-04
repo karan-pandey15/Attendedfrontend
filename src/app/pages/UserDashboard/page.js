@@ -4,7 +4,8 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import io from "socket.io-client";
 import classNames from "classnames";
-import TopNavbar from "@/app/components/topnavbar/page";
+import {   FiMenu } from 'react-icons/fi';
+import Footer from "@/app/components/footer/page";
 
 const socket = io("http://localhost:5010");
 
@@ -40,13 +41,7 @@ const DashboardTwoPage = () => {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  // Function to show the modal and automatically hide it after 1 second
-  const handleClick = () => {
-    setIsModalVisible(true);
-    setTimeout(() => {
-      setIsModalVisible(false);
-    }, 1000); // 1000 milliseconds = 1 second
-  };
+ 
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -124,6 +119,7 @@ const DashboardTwoPage = () => {
     }
   };
 
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-indigo-600">
@@ -134,7 +130,23 @@ const DashboardTwoPage = () => {
 
   return (
     <>
-      <TopNavbar />
+     <nav className="bg-gray-900 text-white p-4">
+            <div className="container mx-auto flex justify-between items-center">
+                {/* Left side: Maras text */}
+                <div className="text-xl font-bold">
+                    Maras
+                </div>
+                
+
+                {/* Right side: Menu icon for small screens */}
+                <div
+                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                className="flex md:hidden items-center">
+                    <FiMenu className="text-white text-2xl" />
+                </div>
+            </div>
+        </nav>
+
       <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
         {/* Sidebar */}
         <aside
@@ -192,12 +204,14 @@ const DashboardTwoPage = () => {
         </aside>
 
         {/* Mobile Sidebar Toggle Button */}
-        <button
+        {/* <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+
           className="md:hidden bg-gray-800 text-white p-2 fixed top-4 left-4 z-50 rounded"
         >
           ☰
         </button>
+         */}
 
         {/* Main Content */}
         <main className="flex-1 p-8 ml-0 md:ml-64 mt-16 md:mt-0">
@@ -277,6 +291,7 @@ const DashboardTwoPage = () => {
               )}
             </div>
           )}
+          
 
           {activeTab === "totalBookings" && (
             <div className="w-full max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg">
@@ -333,6 +348,8 @@ const DashboardTwoPage = () => {
           )}
         </main>
       </div>
+
+      <Footer />
     </>
   );
 };
