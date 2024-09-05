@@ -245,7 +245,7 @@ const RiderDashboard = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("acceptedRides");
     localStorage.removeItem("requests");
-    router.push("/pages/AttendedSignin");
+    router.push("/pages/Attendedsignin");
   };
 
   const renderContent = () => {
