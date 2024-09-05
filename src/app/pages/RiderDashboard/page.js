@@ -409,9 +409,9 @@ const RiderDashboard = () => {
       
                   {rider.wifeName && (
                     <>
-                      <p className="text-lg"><strong>Wife's Name:</strong> {rider.wifeName}</p>
-                      <p className="text-lg"><strong>Wife's Aadhar:</strong> {rider.wifeAadharNumber}</p>
-                      <p className="text-lg"><strong>Wife's PAN:</strong> {rider.wifePanNumber}</p>
+                      <p className="text-lg"><strong>Wife Name:</strong> {rider.wifeName}</p>
+                      <p className="text-lg"><strong>Wife Aadhar:</strong> {rider.wifeAadharNumber}</p>
+                      <p className="text-lg"><strong>Wife PAN:</strong> {rider.wifePanNumber}</p>
                     </>
                   )}
       
