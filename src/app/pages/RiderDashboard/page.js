@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import io from "socket.io-client";
 import { FiMenu } from "react-icons/fi";
 import Footer from "@/app/components/footer/page";
+import Image from "next/image";
 const socket = io("https://api.marasimpex.com"); 
   
 const RiderDashboard = () => {
@@ -365,7 +366,7 @@ const RiderDashboard = () => {
                 
                 {/* Left Profile Section */}
                 <div className="lg:col-span-1 flex flex-col items-center space-y-4">
-                  <img
+                  <Image
                     src="https://via.placeholder.com/150"
                     alt="Profile"
                     className="rounded-full w-32 h-32"
