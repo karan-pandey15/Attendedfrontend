@@ -578,7 +578,7 @@ const AttendedRegister = () => {
         <div className="text-center mt-4">
                     <p className="text-gray-600">
                         Already have an account?{' '}
-                        <Link href="/pages/AttendedSignin" className="text-blue-500 hover:underline">
+                        <Link href="/pages/riderpagelogin" className="text-blue-500 hover:underline">
                             SignIn
                         </Link>
                     </p>

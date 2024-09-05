@@ -3,13 +3,13 @@ import { FiHeart, FiMenu } from 'react-icons/fi';
 
 const DashboardNavbar = () => {
     return (
-        <nav className="bg-gray-900 text-white p-4">
+        <nav className="bg-black text-white p-4">
             <div className="container mx-auto flex justify-between items-center">
                 {/* Left side: Maras text */}
                 <div className="text-xl font-bold">
                     Maras
                 </div>
-                
+
                 {/* Right side: Icons and Sign-in text */}
                 <div className="hidden md:flex items-center space-x-4"> 
                     <FiHeart className="text-white text-xl" />

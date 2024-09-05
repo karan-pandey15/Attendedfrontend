@@ -110,9 +110,9 @@ const RiderDashboard = () => {
       // Clear local storage and reset OTP
       localStorage.removeItem("acceptedRides");
       localStorage.removeItem("requests");
-      window.location.reload();
+      // window.location.reload();
       // router.reload();
-      // router.push("/pages/RiderDashboard");
+      router.push("/pages/RiderDashboard");
       setOtp("");
     } else {
       setMessage("OTP verification failed. Please try again.");
@@ -167,7 +167,7 @@ const RiderDashboard = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
-      router.push("/pages/AttendedSignin");
+      router.push("/pages/riderpagelogin");
     } else {
       axios
         .get("https://api.marasimpex.com/api/auth/user", {
@@ -180,7 +180,7 @@ const RiderDashboard = () => {
         .catch((err) => {
           console.error("Failed to fetch rider data:", err);
           localStorage.removeItem("token");
-          router.push("/pages/AttendedSignin");
+          router.push("/pages/riderpagelogin");
         });
     }
     
@@ -245,7 +245,7 @@ const RiderDashboard = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("acceptedRides");
     localStorage.removeItem("requests");
-    router.push("/pages/Attendedsignin");
+    router.push("/pages/riderpagelogin");
   };
 
   const renderContent = () => {
