@@ -218,7 +218,7 @@ const TopNavbar = () => {
     {
       id: 14,
       itemName: "Register Empoyee & Partner",
-      url: "/pages/Attendedsignin",
+      url: "/pages/Attendedsignup",
     },
     {
       id: 15,
@@ -226,7 +226,7 @@ const TopNavbar = () => {
       url: "/pages/adminsignin",
     },
     {
-      id: 15,
+      id: 16,
       itemName: "Admin Login",
       url: "/pages/Admin/AdminLogin",
     },

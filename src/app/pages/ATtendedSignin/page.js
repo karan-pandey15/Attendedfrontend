@@ -6,7 +6,7 @@ import Link from 'next/link';
 import DashboardNavbar from '@/app/components/DashboardNavbar/page';
 import Footer from '@/app/components/footer/page'; 
 
-const LoginPage = () => {
+const Riderlogin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -84,4 +84,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default Riderlogin;
