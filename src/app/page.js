@@ -10,6 +10,7 @@ import ShopByCategoryFive from './components/shopcategoryfive/page';
 import TabBar from './components/tabbar/page';
 import SearchInput from './components/input/page';
 
+
 export default function Home() {
   return (
     <main>
@@ -72,5 +73,6 @@ export default function Home() {
         <Footer />
       </footer>
     </main>
+    
   );
 }

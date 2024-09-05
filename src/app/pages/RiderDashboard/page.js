@@ -1,14 +1,14 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { AiOutlineMenu } from "react-icons/ai";
 import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import io from "socket.io-client"; 
+import io from "socket.io-client";
 import { FiMenu } from "react-icons/fi";
 import Footer from "@/app/components/footer/page";
-const socket = io("http://localhost:5010"); // Adjust as necessary
-
+const socket = io("https://api.marasimpex.com"); 
+  
 const RiderDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activePage, setActivePage] = useState("Dashboard");
@@ -16,12 +16,54 @@ const RiderDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [requests, setRequests] = useState([]);
   const [acceptedRides, setAcceptedRides] = useState([]);
+  const [rides, setRides] = useState([]);
   const sidebarRef = useRef(null);
   const router = useRouter();
+
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+
+  useEffect(() => {
+    fetchRides();
+  }, []);
+
+  const fetchRides = async () => {
+    try {
+      const response = await axios.get("https://api.marasimpex.com/api/completeridesdata");
+      setRides(response.data); // completeridesdata
+    } catch (error) {
+      console.error("Error fetching rides:", error);
+    }
+  };
+  const handleSendToDatabase = async (ride) => {
+    try {
+      const response = await fetch("https://api.marasimpex.com/api/rides", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: ride.userDetails.name,
+          email: ride.userDetails.email,
+          pickupLocation: ride.userDetails.pickupLocation,
+          dropLocation: ride.userDetails.dropLocation,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("Data sent to database successfully!");
+      } else {
+        alert("Failed to send data to database.");
+      }
+    } catch (error) {
+      console.error("Error sending data to database:", error);
+    }
+  };
+
 
   // Otp code start here
   const [otp, setOtp] = useState("");
@@ -42,15 +84,15 @@ const RiderDashboard = () => {
     }
   };
 
+
   const handleVerifyOtp = async () => {
-    const response = await fetch("http://localhost:5010/api/otp/verify-otp", {
+    const response = await fetch("https://api.marasimpex.com/api/otp/verify-otp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        userId: "someUserId", // Replace with actual user ID
-        otp,
+        otp, // OTP to verify
       }),
     });
 
@@ -58,13 +100,51 @@ const RiderDashboard = () => {
 
     if (data.success) {
       setMessage("OTP verified successfully!");
+
+      // Send each ride to the database
+      for (const ride of acceptedRides) {
+        await handleSendToDatabase(ride);
+      }
+
+      // Clear local storage and reset OTP
+      localStorage.removeItem("acceptedRides");
+      localStorage.removeItem("requests");
+      window.location.reload();
+      // router.reload();
+      // router.push("/pages/RiderDashboard");
+      setOtp("");
     } else {
       setMessage("OTP verification failed. Please try again.");
     }
-
-    // Clear the OTP fields after submission
-    setOtp("");
   };
+
+  // const handleVerifyOtp = async () => {
+  //   const response = await fetch("https://api.marasimpex.com/api/otp/verify-otp", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       userId: "someUserId", // Replace with actual user ID
+  //       otp,
+  //     }),
+  //   });
+
+  //   const data = await response.json();
+
+  //   if (data.success) {
+  //     setMessage("OTP verified successfully!");
+  //     // handleSendToDatabase();
+  //     localStorage.removeItem("acceptedRides");
+  //     localStorage.removeItem("requests");
+  //   } else {
+  //     setMessage("OTP verification failed. Please try again.");
+  //   }
+
+  //   // Clear the OTP fields after submission
+  //   setOtp("");
+  // };
+
 
   const handleOutsideClick = (e) => {
     if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
@@ -78,7 +158,6 @@ const RiderDashboard = () => {
     } else {
       document.removeEventListener("mousedown", handleOutsideClick);
     }
-
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
@@ -90,7 +169,7 @@ const RiderDashboard = () => {
       router.push("/pages/AttendedSignin");
     } else {
       axios
-        .get("http://localhost:5010/api/auth/user", {
+        .get("https://api.marasimpex.com/api/auth/user", {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
@@ -103,6 +182,7 @@ const RiderDashboard = () => {
           router.push("/pages/AttendedSignin");
         });
     }
+    
 
     const storedRequests = JSON.parse(localStorage.getItem("requests")) || [];
     setRequests(storedRequests);
@@ -181,21 +261,20 @@ const RiderDashboard = () => {
         return (
           <>
             <nav className="bg-gray-900 text-white p-4">
-            <div className="container mx-auto flex justify-between items-center">
+              <div className="container mx-auto flex justify-between items-center">
                 {/* Left side: Maras text */}
-                <div className="text-xl font-bold">
-                    Maras
-                </div>
-                
-            
+                <div className="text-xl font-bold">Maras</div>
 
                 {/* Right side: Menu icon for small screens */}
-                <div onClick={toggleSidebar} className="flex md:hidden items-center">
-                    <FiMenu className="text-white text-2xl" />
+                <div
+                  onClick={toggleSidebar}
+                  className="flex md:hidden items-center"
+                >
+                  <FiMenu className="text-white text-2xl" />
                 </div>
-            </div>
-        </nav>
-        
+              </div>
+            </nav>
+
             <div className="bg-white p-4 shadow rounded">
               <h2 className="text-gray-600 mb-4">Rider Dashboard</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
@@ -219,11 +298,20 @@ const RiderDashboard = () => {
                   <p className="text-2xl">{acceptedRides.length}</p>
                 </div>
                 <div
+                  className="bg-green-500 text-white p-4 rounded shadow cursor-pointer"
+                  onClick={() => setActivePage("Complete Complete")}
+                >
+                  <h3 className="text-lg font-bold">Complete Bookings</h3>
+                  <p className="text-2xl">{rides.length-8}</p>
+                  
+                </div>
+                <div
                   className="bg-yellow-500 text-white p-4 rounded shadow cursor-pointer"
                   onClick={() => setActivePage("Total Earnings")}
                 >
                   <h3 className="text-lg font-bold">Total Earnings</h3>
-                  <p className="text-2xl">00</p>
+                  <p className="text-2xl">{rides.length+199}</p>
+
                 </div>
               </div>
               <div className="mt-8">
@@ -263,42 +351,7 @@ const RiderDashboard = () => {
                   </p>
                 )}
               </div>
-              <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-                {/* Heading */}
-                <h1 className="text-2xl font-bold mb-6 text-gray-800">
-                  Verify OTP
-                </h1>
-
-                {/* OTP Input Boxes */}
-                <div className="flex space-x-2 mb-4">
-                  {Array.from({ length: 4 }).map((_, index) => (
-                    <input
-                      key={index}
-                      type="text"
-                      maxLength="1"
-                      className="w-12 h-12 text-center border border-gray-300 rounded-md shadow-sm text-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-                      value={otp[index] || ""}
-                      ref={(el) => (inputRefs.current[index] = el)}
-                      onChange={(e) => handleOtpChange(e, index)}
-                    />
-                  ))}
-                </div>
-
-                {/* Verify Button */}
-                <button
-                  onClick={handleVerifyOtp}
-                  className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-                >
-                  Verify OTP
-                </button>
-
-                {/* Message Display */}
-                {message && (
-                  <p className="text-lg font-medium text-gray-800 bg-gray-200 p-3 rounded-md shadow-sm">
-                    {message}
-                  </p>
-                )}
-              </div>
+           
             </div>
 
             <Footer />
@@ -306,35 +359,115 @@ const RiderDashboard = () => {
         );
       case "Profile":
         return (
-          <div className="bg-white p-4 shadow rounded">
-            
-            <h2 className="text-gray-600 mb-4">My Profile</h2>
-            {rider && (
-              <div>
-                <p className="text-lg">
-                  <strong>Name:</strong> {rider.name}
-                </p>
-                <p className="text-lg">
-                  <strong>Email:</strong> {rider.email}
-                </p>
-                <p className="text-lg">
-                  <strong>Phone:</strong> {rider.phone}
-                </p>
-                <p className="text-lg">
-                  <strong>Vehicle:</strong> {rider.vehicle}
-                </p>
+          <div className="min-h-screen bg-purple-800 p-4 flex justify-center items-center">
+            <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-6xl">
+              <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                
+                {/* Left Profile Section */}
+                <div className="lg:col-span-1 flex flex-col items-center space-y-4">
+                  <img
+                    src="https://via.placeholder.com/150"
+                    alt="Profile"
+                    className="rounded-full w-32 h-32"
+                  />
+                  <h2 className="text-lg font-semibold">{rider.name}</h2>
+                  <p className="text-gray-600">{rider.email}</p>
+                </div>
+      
+                {/* Profile Edit Form */}
+                <div className="lg:col-span-2">
+                  <h2 className="text-xl font-semibold mb-4">Profile Settings</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <p className="text-lg"><strong>Name:</strong> {rider.name}</p>
+                    <p className="text-lg"><strong>Email:</strong> {rider.email}</p>
+                    <p className="text-lg"><strong>Phone:</strong> {rider.phone}</p>
+                    <p className="text-lg"><strong>Language:</strong> {rider.language}</p>
+                    <p className="text-lg"><strong>Category:</strong> {rider.category}</p>
+                    <p className="text-lg"><strong>Qualification:</strong> {rider.qualification}</p>
+                    <p className="text-lg"><strong>Availability:</strong> {rider.availability}</p>
+                  </div>
+      
+                  {/* Bank Details */}
+                  <h3 className="text-xl font-semibold mt-4">Bank Details</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <p className="text-lg"><strong>Bank Name:</strong> {rider.bankName}</p>
+                    <p className="text-lg"><strong>Account Number:</strong> {rider.accountNumber}</p>
+                    <p className="text-lg"><strong>Branch:</strong> {rider.branch}</p>
+                    <p className="text-lg"><strong>IFSC Code:</strong> {rider.ifscCode}</p>
+                  </div>
+                </div>
+      
+                {/* Right Experience Section */}
+                <div className="lg:col-span-1">
+                  <h2 className="text-xl font-semibold mb-4">Additional Information</h2>
+                  <p className="text-lg"><strong>Address:</strong> {rider.address}</p>
+                  <p className="text-lg"><strong>City:</strong> {rider.city}</p>
+                  <p className="text-lg"><strong>State:</strong> {rider.state}</p>
+                  <p className="text-lg"><strong>Pin Code:</strong> {rider.pinCode}</p>
+                  <p className="text-lg"><strong>Marital Status:</strong> {rider.maritalStatus}</p>
+      
+                  {rider.wifeName && (
+                    <>
+                      <p className="text-lg"><strong>Wife's Name:</strong> {rider.wifeName}</p>
+                      <p className="text-lg"><strong>Wife's Aadhar:</strong> {rider.wifeAadharNumber}</p>
+                      <p className="text-lg"><strong>Wife's PAN:</strong> {rider.wifePanNumber}</p>
+                    </>
+                  )}
+      
+                  {/* Relation Bank Details */}
+                  <h3 className="text-xl font-semibold mt-4">Relation Bank Details</h3>
+                  <p className="text-lg"><strong>Relation Bank Name:</strong> {rider.relationBankName}</p>
+                  <p className="text-lg"><strong>Relation Account Number:</strong> {rider.relationAccountNumber}</p>
+                  <p className="text-lg"><strong>Relation Branch:</strong> {rider.relationBranch}</p>
+                  <p className="text-lg"><strong>Relation IFSC Code:</strong> {rider.relationIfscCode}</p>
+                </div>
               </div>
-            )}
-            <button
-              onClick={() => setActivePage("Dashboard")}
-              className="mt-4 w-full py-3 px-6 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-            >
-              Back to Dashboard
-            </button>
+      
+              <button
+             onClick={() => setActivePage("Dashboard")}
+                className="mt-6 w-full py-3 px-6 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+              >
+                Back to Dashboard
+              </button>
+            </div>
           </div>
         );
       case "Total Bookings":
         return (
+          // <div className="bg-white p-4 shadow rounded">
+          //   <h2 className="text-gray-600 mb-4">Total Bookings</h2>
+          //   {acceptedRides.length > 0 ? (
+          //     acceptedRides.map((ride, index) => (
+          //       <div
+          //         key={index}
+          //         className="p-4 mb-4 bg-white border-l-4 border-blue-500 rounded-lg shadow-md"
+          //       >
+          //         <p className="text-gray-800">
+          //           <strong>User Name:</strong> {ride.userDetails.name}
+          //         </p>
+          //         <p className="text-gray-800">
+          //           <strong>Email:</strong> {ride.userDetails.email}
+          //         </p>
+          //         <p className="text-gray-800">
+          //           <strong>Pickup Location:</strong> {ride.userDetails.pickupLocation}
+          //         </p>
+          //         <p className="text-gray-800">
+          //           <strong>Drop Location:</strong> {ride.userDetails.dropLocation}
+          //         </p>
+          //         <button>Send to DataBase</button>
+          //       </div>
+          //     ))
+          //   ) : (
+          //     <p className="text-gray-500">No bookings yet.</p>
+          //   )}
+          //   <button
+          //     onClick={() => setActivePage("Dashboard")}
+          //     className="mt-4 w-full py-3 px-6 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          //   >
+          //     Back to Dashboard
+          //   </button>
+          // </div>
+          <div>
           <div className="bg-white p-4 shadow rounded">
             <h2 className="text-gray-600 mb-4">Total Bookings</h2>
             {acceptedRides.length > 0 ? (
@@ -350,12 +483,54 @@ const RiderDashboard = () => {
                     <strong>Email:</strong> {ride.userDetails.email}
                   </p>
                   <p className="text-gray-800">
-                    <strong>Pickup Location:</strong> {ride.pickupLocation}
+                    <strong>Pickup Location:</strong>{" "}
+                    {ride.userDetails.pickupLocation}
                   </p>
                   <p className="text-gray-800">
-                    <strong>Drop Location:</strong> {ride.dropLocation}
+                    <strong>Drop Location:</strong> {ride.userDetails.dropLocation}
                   </p>
-                </div>
+                  <p className="text-gray-800">
+                    <strong>Rider Email:</strong> {localStorage.getItem("rideremail")}
+                  </p>
+                  
+                  
+  <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+    {/* Heading */}
+    <h1 className="text-xl font-bold mb-4 text-gray-800 text-center">
+      Verify OTP
+    </h1>
+
+    {/* OTP Input Boxes */}
+    <div className="flex justify-center space-x-2 mb-6">
+      {Array.from({ length: 4 }).map((_, index) => (
+        <input
+          key={index}
+          type="text"
+          maxLength="1"
+          className="w-10 h-10 text-center border border-gray-300 rounded-md shadow-sm text-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+          value={otp[index] || ""}
+          ref={(el) => (inputRefs.current[index] = el)}
+          onChange={(e) => handleOtpChange(e, index)}
+        />
+      ))}
+    </div>
+
+    {/* Verify Button */}
+    <button
+      onClick={handleVerifyOtp}
+      className="w-full py-2 bg-blue-500 text-white font-semibold rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+    >
+      Verify OTP
+    </button>
+
+    {/* Message Display */}
+    {message && (
+      <p className="text-center text-md font-medium text-gray-800 bg-gray-200 p-3 rounded-md shadow-sm">
+        {message}
+      </p>
+    )}
+  </div>
+</div>
               ))
             ) : (
               <p className="text-gray-500">No bookings yet.</p>
@@ -367,6 +542,8 @@ const RiderDashboard = () => {
               Back to Dashboard
             </button>
           </div>
+        </div>
+    
         );
       case "Total Earnings":
         return (
@@ -458,16 +635,13 @@ const RiderDashboard = () => {
           </button>
         </div>
       </div>
-      <main className="flex-1 bg-gray-100 min-h-screen">
-        {renderContent()}
-      </main>
+      <main className="flex-1 bg-gray-100 min-h-screen">{renderContent()}</main>
       <div className="fixed top-4 right-4 md:hidden">
         <AiOutlineMenu
           onClick={toggleSidebar}
           className="text-2xl cursor-pointer"
         />
       </div>
-      
     </div>
   );
 };

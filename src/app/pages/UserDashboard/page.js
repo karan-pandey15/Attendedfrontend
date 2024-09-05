@@ -7,7 +7,7 @@ import classNames from "classnames";
 import {   FiMenu } from 'react-icons/fi';
 import Footer from "@/app/components/footer/page";
 
-const socket = io("http://localhost:5010");
+const socket = io("https://api.marasimpex.com");
 
 const DashboardTwoPage = () => {
   const [user, setUser] = useState(null);
@@ -23,7 +23,7 @@ const DashboardTwoPage = () => {
 
   // Function to generate OTP
   const handleGenerateOtp = async () => {
-    const response = await fetch("http://localhost:5010/api/otp/generate-otp", {
+    const response = await fetch("https://api.marasimpex.com/api/otp/generate-otp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -54,7 +54,7 @@ const DashboardTwoPage = () => {
       setLoading(false);
     } else {
       axios
-        .get("http://localhost:5010/api/auth/userdata", {
+        .get("https://api.marasimpex.com/api/auth/userdata", {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
@@ -271,17 +271,17 @@ const DashboardTwoPage = () => {
               {rideAccepted ? (
                 <div className="p-4 bg-green-100 rounded-lg shadow-sm">
                   <p className="text-green-800">
-                    <strong className="font-semibold">Pickup Location:</strong>{" "}
-                    {rideAccepted.pickupLocation}
-                  </p>
-                  <p className="text-green-800">
-                    <strong className="font-semibold">Drop Location:</strong>{" "}
-                    {rideAccepted.dropLocation}
-                  </p>
-                  <p className="text-green-800">
                     <strong className="font-semibold">Driver Name:</strong>{" "}
                     {rideAccepted.driverName}
                   </p>
+
+                  <p className="text-green-800">
+                    <strong className="font-semibold">Driver Email:</strong>{" "}
+                    {rideAccepted.riderEmail}
+                  </p>
+                  
+
+                   
                   <p className="text-green-800">
                     <strong className="font-semibold">OTP:</strong> {otp}
                   </p>

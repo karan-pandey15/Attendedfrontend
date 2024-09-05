@@ -111,7 +111,7 @@ const AttendedRegister = () => {
       }
     }
     try {
-      await axios.post("http://localhost:5010/api/users/register", form, {
+      await axios.post("https://api.marasimpex.com/api/users/register", form, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

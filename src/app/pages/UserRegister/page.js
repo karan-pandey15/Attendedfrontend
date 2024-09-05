@@ -22,7 +22,7 @@ const UserRegister = () => {
         e.preventDefault();
         setError('');
         try {
-            await axios.post('http://localhost:5010/api/auth/registeruser', { name, email, phone, address, city, pin, password });
+            await axios.post('https://api.marasimpex.com/api/auth/registeruser', { name, email, phone, address, city, pin, password });
             router.push('/pages/userSignin');
         } catch (err) {
             setError(err.response?.data?.message || 'An error occurred. Please try again.');

@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Footer from "@/app/components/footer/page";
-import Link from "next/link";
+import Footer from "@/app/components/footer/page"; 
 import TopNavbar from "@/app/components/topnavbar/page";
 
 const ProductForm = () => {
@@ -28,7 +27,7 @@ const ProductForm = () => {
     images.forEach((image) => formData.append("images", image));
 
     try {
-      const response = await fetch("http://localhost:5010/api/products", {
+      const response = await fetch("https://api.marasimpex.com/api/products", {
         method: "POST",
         body: formData,
       });

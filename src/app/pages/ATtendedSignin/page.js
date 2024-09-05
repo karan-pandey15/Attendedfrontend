@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import DashboardNavbar from '@/app/components/DashboardNavbar/page';
-import Footer from '@/app/components/footer/page';
+import Footer from '@/app/components/footer/page'; 
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -16,11 +16,13 @@ const LoginPage = () => {
         e.preventDefault();
         setError(''); // Reset error message
         try {
-            const response = await axios.post('http://localhost:5010/api/auth/login', { email, password });
+            const response = await axios.post('https://api.marasimpex.com/api/auth/login', { email, password });
             console.log('Login response:', response.data); // Log the response to check the token
             
             const { token } = response.data;
             localStorage.setItem('token', token);
+            localStorage.setItem('rideremail', email);
+            
             router.push('/pages/RiderDashboard');
         } catch (err) {
             console.error('Login error:', err); // Log error details

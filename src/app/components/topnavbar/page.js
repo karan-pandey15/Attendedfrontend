@@ -225,6 +225,12 @@ const TopNavbar = () => {
       itemName: "Register Products",
       url: "/pages/adminsignin",
     },
+    {
+      id: 15,
+      itemName: "Admin Login",
+      url: "/pages/Admin/AdminLogin",
+    },
+    
   ];
 
   return (

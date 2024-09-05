@@ -16,7 +16,7 @@ const LoginTwoPage = () => {
         e.preventDefault();
         setError('');
         try {
-            const response = await axios.post('http://localhost:5010/api/auth/loginuser', { email, password });
+            const response = await axios.post('https://api.marasimpex.com/api/auth/loginuser', { email, password });
             const { token } = response.data;
             // Store token in localStorage
             localStorage.setItem('token', token);
